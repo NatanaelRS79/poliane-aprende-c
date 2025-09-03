@@ -1,12 +1,12 @@
 {
-  "name": "Poliane Aprende C",
-  "short_name": "Aprende C",
+  "name": "Poliane Aprende Lógica & C",
+  "short_name": "Poliane Lógica+C",
   "start_url": ".",
   "scope": ".",
   "display": "standalone",
   "background_color": "#0b0f14",
   "theme_color": "#0b0f14",
-  "description": "PWA para aprender lógica e linguagem C em sessões curtas, com acolhimento, prática e integração com Cxxdroid.",
+  "description": "PWA v5.1 estável: lógica/algoritmos + C, quizzes por módulo, prova 70q.",
   "icons": [
     {
       "src": "icons/icon-192.png",

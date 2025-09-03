@@ -1,0 +1,1725 @@
+{
+  "CONTENT": [
+    {
+      "id": "m0",
+      "title": "Fundamentos de Lógica e Algoritmos (sem sintaxe)",
+      "color": "#b28cff",
+      "lessons": [
+        {
+          "id": "0.1",
+          "title": "Algoritmo: Entrada → Processamento → Saída",
+          "duration": 15,
+          "steps": {
+            "acolhimento": "Você tá aqui, cansada mas firme — vamos em passos curtos.",
+            "contexto": "Trazemos o conceito pro seu dia a dia.",
+            "analogia": "Pense nas suas gavetas/decisões/rotinas — vamos espelhar no computador.",
+            "visual": {
+              "type": "drawers",
+              "data": [
+                "Entrada",
+                "Processo",
+                "Saída"
+              ]
+            },
+            "code": {
+              "snippet": "// pseudocódigo",
+              "explain": [
+                "Explicação linha a linha",
+                "Conectado à rotina"
+              ]
+            },
+            "exercise": {
+              "type": "mcq",
+              "prompt": "Conferiu a explicação?",
+              "options": [
+                "Sim",
+                "Rever"
+              ],
+              "answerIndex": 0
+            },
+            "celebracao": "Excelente! Outro passo 💙"
+          },
+          "c_code_full": "int main(){return 0;}"
+        },
+        {
+          "id": "0.2",
+          "title": "Pseudocódigo e Fluxograma",
+          "duration": 15,
+          "steps": {
+            "acolhimento": "Você tá aqui, cansada mas firme — vamos em passos curtos.",
+            "contexto": "Trazemos o conceito pro seu dia a dia.",
+            "analogia": "Pense nas suas gavetas/decisões/rotinas — vamos espelhar no computador.",
+            "visual": {
+              "type": "drawers",
+              "data": [
+                "Entrada",
+                "Processo",
+                "Saída"
+              ]
+            },
+            "code": {
+              "snippet": "// pseudocódigo",
+              "explain": [
+                "Explicação linha a linha",
+                "Conectado à rotina"
+              ]
+            },
+            "exercise": {
+              "type": "mcq",
+              "prompt": "Conferiu a explicação?",
+              "options": [
+                "Sim",
+                "Rever"
+              ],
+              "answerIndex": 0
+            },
+            "celebracao": "Excelente! Outro passo 💙"
+          },
+          "c_code_full": "int main(){return 0;}"
+        },
+        {
+          "id": "0.3",
+          "title": "Decomposição e Sequência",
+          "duration": 15,
+          "steps": {
+            "acolhimento": "Você tá aqui, cansada mas firme — vamos em passos curtos.",
+            "contexto": "Trazemos o conceito pro seu dia a dia.",
+            "analogia": "Pense nas suas gavetas/decisões/rotinas — vamos espelhar no computador.",
+            "visual": {
+              "type": "drawers",
+              "data": [
+                "Entrada",
+                "Processo",
+                "Saída"
+              ]
+            },
+            "code": {
+              "snippet": "// steps",
+              "explain": [
+                "Explicação linha a linha",
+                "Conectado à rotina"
+              ]
+            },
+            "exercise": {
+              "type": "mcq",
+              "prompt": "Conferiu a explicação?",
+              "options": [
+                "Sim",
+                "Rever"
+              ],
+              "answerIndex": 0
+            },
+            "celebracao": "Excelente! Outro passo 💙"
+          },
+          "c_code_full": "int main(){return 0;}"
+        },
+        {
+          "id": "0.4",
+          "title": "Seleção (decisão) sem linguagem",
+          "duration": 15,
+          "steps": {
+            "acolhimento": "Você tá aqui, cansada mas firme — vamos em passos curtos.",
+            "contexto": "Trazemos o conceito pro seu dia a dia.",
+            "analogia": "Pense nas suas gavetas/decisões/rotinas — vamos espelhar no computador.",
+            "visual": {
+              "type": "drawers",
+              "data": [
+                "Entrada",
+                "Processo",
+                "Saída"
+              ]
+            },
+            "code": {
+              "snippet": "// if/else",
+              "explain": [
+                "Explicação linha a linha",
+                "Conectado à rotina"
+              ]
+            },
+            "exercise": {
+              "type": "mcq",
+              "prompt": "Conferiu a explicação?",
+              "options": [
+                "Sim",
+                "Rever"
+              ],
+              "answerIndex": 0
+            },
+            "celebracao": "Excelente! Outro passo 💙"
+          },
+          "c_code_full": "int main(){return 0;}"
+        },
+        {
+          "id": "0.5",
+          "title": "Repetição sem linguagem",
+          "duration": 15,
+          "steps": {
+            "acolhimento": "Você tá aqui, cansada mas firme — vamos em passos curtos.",
+            "contexto": "Trazemos o conceito pro seu dia a dia.",
+            "analogia": "Pense nas suas gavetas/decisões/rotinas — vamos espelhar no computador.",
+            "visual": {
+              "type": "drawers",
+              "data": [
+                "Entrada",
+                "Processo",
+                "Saída"
+              ]
+            },
+            "code": {
+              "snippet": "// loop",
+              "explain": [
+                "Explicação linha a linha",
+                "Conectado à rotina"
+              ]
+            },
+            "exercise": {
+              "type": "mcq",
+              "prompt": "Conferiu a explicação?",
+              "options": [
+                "Sim",
+                "Rever"
+              ],
+              "answerIndex": 0
+            },
+            "celebracao": "Excelente! Outro passo 💙"
+          },
+          "c_code_full": "int main(){return 0;}"
+        },
+        {
+          "id": "0.6",
+          "title": "Teste de mesa",
+          "duration": 15,
+          "steps": {
+            "acolhimento": "Você tá aqui, cansada mas firme — vamos em passos curtos.",
+            "contexto": "Trazemos o conceito pro seu dia a dia.",
+            "analogia": "Pense nas suas gavetas/decisões/rotinas — vamos espelhar no computador.",
+            "visual": {
+              "type": "drawers",
+              "data": [
+                "Entrada",
+                "Processo",
+                "Saída"
+              ]
+            },
+            "code": {
+              "snippet": "// trace",
+              "explain": [
+                "Explicação linha a linha",
+                "Conectado à rotina"
+              ]
+            },
+            "exercise": {
+              "type": "mcq",
+              "prompt": "Conferiu a explicação?",
+              "options": [
+                "Sim",
+                "Rever"
+              ],
+              "answerIndex": 0
+            },
+            "celebracao": "Excelente! Outro passo 💙"
+          },
+          "c_code_full": "int main(){return 0;}"
+        },
+        {
+          "id": "0.7",
+          "title": "Depuração (debug)",
+          "duration": 15,
+          "steps": {
+            "acolhimento": "Você tá aqui, cansada mas firme — vamos em passos curtos.",
+            "contexto": "Trazemos o conceito pro seu dia a dia.",
+            "analogia": "Pense nas suas gavetas/decisões/rotinas — vamos espelhar no computador.",
+            "visual": {
+              "type": "drawers",
+              "data": [
+                "Entrada",
+                "Processo",
+                "Saída"
+              ]
+            },
+            "code": {
+              "snippet": "// debug",
+              "explain": [
+                "Explicação linha a linha",
+                "Conectado à rotina"
+              ]
+            },
+            "exercise": {
+              "type": "mcq",
+              "prompt": "Conferiu a explicação?",
+              "options": [
+                "Sim",
+                "Rever"
+              ],
+              "answerIndex": 0
+            },
+            "celebracao": "Excelente! Outro passo 💙"
+          },
+          "c_code_full": "int main(){return 0;}"
+        },
+        {
+          "id": "0.8",
+          "title": "Noções de complexidade",
+          "duration": 15,
+          "steps": {
+            "acolhimento": "Você tá aqui, cansada mas firme — vamos em passos curtos.",
+            "contexto": "Trazemos o conceito pro seu dia a dia.",
+            "analogia": "Pense nas suas gavetas/decisões/rotinas — vamos espelhar no computador.",
+            "visual": {
+              "type": "drawers",
+              "data": [
+                "Entrada",
+                "Processo",
+                "Saída"
+              ]
+            },
+            "code": {
+              "snippet": "// big-O",
+              "explain": [
+                "Explicação linha a linha",
+                "Conectado à rotina"
+              ]
+            },
+            "exercise": {
+              "type": "mcq",
+              "prompt": "Conferiu a explicação?",
+              "options": [
+                "Sim",
+                "Rever"
+              ],
+              "answerIndex": 0
+            },
+            "celebracao": "Excelente! Outro passo 💙"
+          },
+          "c_code_full": "int main(){return 0;}"
+        },
+        {
+          "id": "0.9",
+          "title": "Padrões (buscar, contar, max)",
+          "duration": 15,
+          "steps": {
+            "acolhimento": "Você tá aqui, cansada mas firme — vamos em passos curtos.",
+            "contexto": "Trazemos o conceito pro seu dia a dia.",
+            "analogia": "Pense nas suas gavetas/decisões/rotinas — vamos espelhar no computador.",
+            "visual": {
+              "type": "drawers",
+              "data": [
+                "Entrada",
+                "Processo",
+                "Saída"
+              ]
+            },
+            "code": {
+              "snippet": "// patterns",
+              "explain": [
+                "Explicação linha a linha",
+                "Conectado à rotina"
+              ]
+            },
+            "exercise": {
+              "type": "mcq",
+              "prompt": "Conferiu a explicação?",
+              "options": [
+                "Sim",
+                "Rever"
+              ],
+              "answerIndex": 0
+            },
+            "celebracao": "Excelente! Outro passo 💙"
+          },
+          "c_code_full": "int main(){return 0;}"
+        },
+        {
+          "id": "0.10",
+          "title": "PROJETO: Rotina da Casa",
+          "duration": 15,
+          "steps": {
+            "acolhimento": "Você tá aqui, cansada mas firme — vamos em passos curtos.",
+            "contexto": "Trazemos o conceito pro seu dia a dia.",
+            "analogia": "Pense nas suas gavetas/decisões/rotinas — vamos espelhar no computador.",
+            "visual": {
+              "type": "drawers",
+              "data": [
+                "Entrada",
+                "Processo",
+                "Saída"
+              ]
+            },
+            "code": {
+              "snippet": "// projeto",
+              "explain": [
+                "Explicação linha a linha",
+                "Conectado à rotina"
+              ]
+            },
+            "exercise": {
+              "type": "mcq",
+              "prompt": "Conferiu a explicação?",
+              "options": [
+                "Sim",
+                "Rever"
+              ],
+              "answerIndex": 0
+            },
+            "celebracao": "Excelente! Outro passo 💙"
+          },
+          "c_code_full": "int main(){return 0;}"
+        }
+      ]
+    },
+    {
+      "id": "m1",
+      "title": "Organizando Informações (Variáveis)",
+      "color": "#4db2ff",
+      "lessons": [
+        {
+          "id": "1.1",
+          "title": "Gavetas Organizadas = Variáveis Organizadas",
+          "duration": 15,
+          "steps": {
+            "acolhimento": "Você tá aqui, cansada mas firme — vamos em passos curtos.",
+            "contexto": "Trazemos o conceito pro seu dia a dia.",
+            "analogia": "Pense nas suas gavetas/decisões/rotinas — vamos espelhar no computador.",
+            "visual": {
+              "type": "drawers",
+              "data": [
+                "Remédio",
+                "Idade",
+                "Terapia"
+              ]
+            },
+            "code": {
+              "snippet": "char medicamento_theo[20] = \"Risperidona\";",
+              "explain": [
+                "Explicação linha a linha",
+                "Conectado à rotina"
+              ]
+            },
+            "exercise": {
+              "type": "mcq",
+              "prompt": "Conferiu a explicação?",
+              "options": [
+                "Sim",
+                "Rever"
+              ],
+              "answerIndex": 0
+            },
+            "celebracao": "Excelente! Outro passo 💙"
+          },
+          "c_code_full": "#include <stdio.h>\nint main(){ char medicamento_theo[20]=\"Risperidona\"; printf(\"Med: %s\\n\",medicamento_theo); return 0;}"
+        },
+        {
+          "id": "1.2",
+          "title": "Tipos de Dados (int, float, char[])",
+          "duration": 15,
+          "steps": {
+            "acolhimento": "Você tá aqui, cansada mas firme — vamos em passos curtos.",
+            "contexto": "Trazemos o conceito pro seu dia a dia.",
+            "analogia": "Pense nas suas gavetas/decisões/rotinas — vamos espelhar no computador.",
+            "visual": {
+              "type": "drawers",
+              "data": [
+                "Remédio",
+                "Idade",
+                "Terapia"
+              ]
+            },
+            "code": {
+              "snippet": "int idade_theo=8; float altura=1.30; char escola[30]=\"APAE\";",
+              "explain": [
+                "Explicação linha a linha",
+                "Conectado à rotina"
+              ]
+            },
+            "exercise": {
+              "type": "mcq",
+              "prompt": "Conferiu a explicação?",
+              "options": [
+                "Sim",
+                "Rever"
+              ],
+              "answerIndex": 0
+            },
+            "celebracao": "Excelente! Outro passo 💙"
+          },
+          "c_code_full": "#include <stdio.h>\nint main(){ int idade_theo=8; float altura=1.30; char escola[30]=\"APAE\"; printf(\"%d %.2f %s\\n\",idade_theo,altura,escola); return 0;}"
+        },
+        {
+          "id": "1.3",
+          "title": "Atualização (atribuição)",
+          "duration": 15,
+          "steps": {
+            "acolhimento": "Você tá aqui, cansada mas firme — vamos em passos curtos.",
+            "contexto": "Trazemos o conceito pro seu dia a dia.",
+            "analogia": "Pense nas suas gavetas/decisões/rotinas — vamos espelhar no computador.",
+            "visual": {
+              "type": "drawers",
+              "data": [
+                "Remédio",
+                "Idade",
+                "Terapia"
+              ]
+            },
+            "code": {
+              "snippet": "int idade=8; idade=9;",
+              "explain": [
+                "Explicação linha a linha",
+                "Conectado à rotina"
+              ]
+            },
+            "exercise": {
+              "type": "mcq",
+              "prompt": "Conferiu a explicação?",
+              "options": [
+                "Sim",
+                "Rever"
+              ],
+              "answerIndex": 0
+            },
+            "celebracao": "Excelente! Outro passo 💙"
+          },
+          "c_code_full": "#include <stdio.h>\nint main(){ int idade=8; idade=9; printf(\"%d\\n\",idade); return 0;}"
+        },
+        {
+          "id": "1.4",
+          "title": "Saída formatada com printf",
+          "duration": 15,
+          "steps": {
+            "acolhimento": "Você tá aqui, cansada mas firme — vamos em passos curtos.",
+            "contexto": "Trazemos o conceito pro seu dia a dia.",
+            "analogia": "Pense nas suas gavetas/decisões/rotinas — vamos espelhar no computador.",
+            "visual": {
+              "type": "drawers",
+              "data": [
+                "Remédio",
+                "Idade",
+                "Terapia"
+              ]
+            },
+            "code": {
+              "snippet": "printf(\"Theo tem %d anos\\n\", 8);",
+              "explain": [
+                "Explicação linha a linha",
+                "Conectado à rotina"
+              ]
+            },
+            "exercise": {
+              "type": "mcq",
+              "prompt": "Conferiu a explicação?",
+              "options": [
+                "Sim",
+                "Rever"
+              ],
+              "answerIndex": 0
+            },
+            "celebracao": "Excelente! Outro passo 💙"
+          },
+          "c_code_full": "#include <stdio.h>\nint main(){ int idade=8; printf(\"Theo tem %d anos\\n\",idade); return 0;}"
+        },
+        {
+          "id": "1.5",
+          "title": "Entrada de dados com scanf",
+          "duration": 15,
+          "steps": {
+            "acolhimento": "Você tá aqui, cansada mas firme — vamos em passos curtos.",
+            "contexto": "Trazemos o conceito pro seu dia a dia.",
+            "analogia": "Pense nas suas gavetas/decisões/rotinas — vamos espelhar no computador.",
+            "visual": {
+              "type": "drawers",
+              "data": [
+                "Remédio",
+                "Idade",
+                "Terapia"
+              ]
+            },
+            "code": {
+              "snippet": "scanf(\"%d\", &idade);",
+              "explain": [
+                "Explicação linha a linha",
+                "Conectado à rotina"
+              ]
+            },
+            "exercise": {
+              "type": "mcq",
+              "prompt": "Conferiu a explicação?",
+              "options": [
+                "Sim",
+                "Rever"
+              ],
+              "answerIndex": 0
+            },
+            "celebracao": "Excelente! Outro passo 💙"
+          },
+          "c_code_full": "#include <stdio.h>\nint main(){ int idade; scanf(\"%d\",&idade); printf(\"%d\\n\",idade); return 0;}"
+        },
+        {
+          "id": "1.6",
+          "title": "Constantes e #define",
+          "duration": 15,
+          "steps": {
+            "acolhimento": "Você tá aqui, cansada mas firme — vamos em passos curtos.",
+            "contexto": "Trazemos o conceito pro seu dia a dia.",
+            "analogia": "Pense nas suas gavetas/decisões/rotinas — vamos espelhar no computador.",
+            "visual": {
+              "type": "drawers",
+              "data": [
+                "Remédio",
+                "Idade",
+                "Terapia"
+              ]
+            },
+            "code": {
+              "snippet": "#define DOSE 1.0\nconst int MINUTOS=30;",
+              "explain": [
+                "Explicação linha a linha",
+                "Conectado à rotina"
+              ]
+            },
+            "exercise": {
+              "type": "mcq",
+              "prompt": "Conferiu a explicação?",
+              "options": [
+                "Sim",
+                "Rever"
+              ],
+              "answerIndex": 0
+            },
+            "celebracao": "Excelente! Outro passo 💙"
+          },
+          "c_code_full": "#include <stdio.h>\n#define DOSE 1.0\nint main(){ const int MINUTOS=30; printf(\"%.1f %d\\n\",DOSE,MINUTOS); return 0;}"
+        },
+        {
+          "id": "1.7",
+          "title": "Operadores aritméticos (+ - * / %)",
+          "duration": 15,
+          "steps": {
+            "acolhimento": "Você tá aqui, cansada mas firme — vamos em passos curtos.",
+            "contexto": "Trazemos o conceito pro seu dia a dia.",
+            "analogia": "Pense nas suas gavetas/decisões/rotinas — vamos espelhar no computador.",
+            "visual": {
+              "type": "drawers",
+              "data": [
+                "Remédio",
+                "Idade",
+                "Terapia"
+              ]
+            },
+            "code": {
+              "snippet": "int a=10,b=3; printf(\"%d %d\\n\", a/b, a%b);",
+              "explain": [
+                "Explicação linha a linha",
+                "Conectado à rotina"
+              ]
+            },
+            "exercise": {
+              "type": "mcq",
+              "prompt": "Conferiu a explicação?",
+              "options": [
+                "Sim",
+                "Rever"
+              ],
+              "answerIndex": 0
+            },
+            "celebracao": "Excelente! Outro passo 💙"
+          },
+          "c_code_full": "#include <stdio.h>\nint main(){ int a=10,b=3; printf(\"%d %d\\n\",a/b,a%b); return 0;}"
+        },
+        {
+          "id": "1.8",
+          "title": "Precedência e parênteses",
+          "duration": 15,
+          "steps": {
+            "acolhimento": "Você tá aqui, cansada mas firme — vamos em passos curtos.",
+            "contexto": "Trazemos o conceito pro seu dia a dia.",
+            "analogia": "Pense nas suas gavetas/decisões/rotinas — vamos espelhar no computador.",
+            "visual": {
+              "type": "drawers",
+              "data": [
+                "Remédio",
+                "Idade",
+                "Terapia"
+              ]
+            },
+            "code": {
+              "snippet": "int r=2+3*4; int s=(2+3)*4;",
+              "explain": [
+                "Explicação linha a linha",
+                "Conectado à rotina"
+              ]
+            },
+            "exercise": {
+              "type": "mcq",
+              "prompt": "Conferiu a explicação?",
+              "options": [
+                "Sim",
+                "Rever"
+              ],
+              "answerIndex": 0
+            },
+            "celebracao": "Excelente! Outro passo 💙"
+          },
+          "c_code_full": "#include <stdio.h>\nint main(){ int r=2+3*4; int s=(2+3)*4; printf(\"%d %d\\n\",r,s); return 0;}"
+        },
+        {
+          "id": "1.9",
+          "title": "Casting e perda de precisão",
+          "duration": 15,
+          "steps": {
+            "acolhimento": "Você tá aqui, cansada mas firme — vamos em passos curtos.",
+            "contexto": "Trazemos o conceito pro seu dia a dia.",
+            "analogia": "Pense nas suas gavetas/decisões/rotinas — vamos espelhar no computador.",
+            "visual": {
+              "type": "drawers",
+              "data": [
+                "Remédio",
+                "Idade",
+                "Terapia"
+              ]
+            },
+            "code": {
+              "snippet": "int x=5; float y=2; printf(\"%.1f\\n\", x/(float)y);",
+              "explain": [
+                "Explicação linha a linha",
+                "Conectado à rotina"
+              ]
+            },
+            "exercise": {
+              "type": "mcq",
+              "prompt": "Conferiu a explicação?",
+              "options": [
+                "Sim",
+                "Rever"
+              ],
+              "answerIndex": 0
+            },
+            "celebracao": "Excelente! Outro passo 💙"
+          },
+          "c_code_full": "#include <stdio.h>\nint main(){ int x=5; float y=2; printf(\"%.1f\\n\", x/(float)y); return 0;}"
+        },
+        {
+          "id": "1.10",
+          "title": "PROJETO: Organizador da Rotina",
+          "duration": 15,
+          "steps": {
+            "acolhimento": "Você tá aqui, cansada mas firme — vamos em passos curtos.",
+            "contexto": "Trazemos o conceito pro seu dia a dia.",
+            "analogia": "Pense nas suas gavetas/decisões/rotinas — vamos espelhar no computador.",
+            "visual": {
+              "type": "drawers",
+              "data": [
+                "Remédio",
+                "Idade",
+                "Terapia"
+              ]
+            },
+            "code": {
+              "snippet": "/* ver completo */",
+              "explain": [
+                "Explicação linha a linha",
+                "Conectado à rotina"
+              ]
+            },
+            "exercise": {
+              "type": "mcq",
+              "prompt": "Conferiu a explicação?",
+              "options": [
+                "Sim",
+                "Rever"
+              ],
+              "answerIndex": 0
+            },
+            "celebracao": "Excelente! Outro passo 💙"
+          },
+          "c_code_full": "#include <stdio.h>\nint main(){ char nome[20]=\"Theo\"; int idade=8; float peso=28.5; printf(\"%s %d %.1f\\n\",nome,idade,peso); return 0;}"
+        }
+      ]
+    },
+    {
+      "id": "m2",
+      "title": "Tomando Decisões (if-else)",
+      "color": "#7cffc2",
+      "lessons": [
+        {
+          "id": "2.1",
+          "title": "Se Theo Agitado, então Música Calma",
+          "duration": 15,
+          "steps": {
+            "acolhimento": "Você tá aqui, cansada mas firme — vamos em passos curtos.",
+            "contexto": "Trazemos o conceito pro seu dia a dia.",
+            "analogia": "Pense nas suas gavetas/decisões/rotinas — vamos espelhar no computador.",
+            "visual": {
+              "type": "if",
+              "data": {
+                "cond": "condição X",
+                "then": "Ação A",
+                "else": "Ação B"
+              }
+            },
+            "code": {
+              "snippet": "int ag=1; if(ag==1){ printf(\"Música\\n\"); }",
+              "explain": [
+                "Explicação linha a linha",
+                "Conectado à rotina"
+              ]
+            },
+            "exercise": {
+              "type": "mcq",
+              "prompt": "Conferiu a explicação?",
+              "options": [
+                "Sim",
+                "Rever"
+              ],
+              "answerIndex": 0
+            },
+            "celebracao": "Excelente! Outro passo 💙"
+          },
+          "c_code_full": "#include <stdio.h>\nint main(){ int ag=1; if(ag==1) puts(\"Música calma\"); else puts(\"Rotina\"); return 0;}"
+        },
+        {
+          "id": "2.2",
+          "title": "Comparadores",
+          "duration": 15,
+          "steps": {
+            "acolhimento": "Você tá aqui, cansada mas firme — vamos em passos curtos.",
+            "contexto": "Trazemos o conceito pro seu dia a dia.",
+            "analogia": "Pense nas suas gavetas/decisões/rotinas — vamos espelhar no computador.",
+            "visual": {
+              "type": "if",
+              "data": {
+                "cond": "condição X",
+                "then": "Ação A",
+                "else": "Ação B"
+              }
+            },
+            "code": {
+              "snippet": "int h=15; if(h<14) puts(\"Sair 13h30\");",
+              "explain": [
+                "Explicação linha a linha",
+                "Conectado à rotina"
+              ]
+            },
+            "exercise": {
+              "type": "mcq",
+              "prompt": "Conferiu a explicação?",
+              "options": [
+                "Sim",
+                "Rever"
+              ],
+              "answerIndex": 0
+            },
+            "celebracao": "Excelente! Outro passo 💙"
+          },
+          "c_code_full": "#include <stdio.h>\nint main(){ int h=15; if(h<14) puts(\"Sair 13h30\"); else puts(\"Sair 16h30\"); return 0;}"
+        },
+        {
+          "id": "2.3",
+          "title": "else if (cadeias)",
+          "duration": 15,
+          "steps": {
+            "acolhimento": "Você tá aqui, cansada mas firme — vamos em passos curtos.",
+            "contexto": "Trazemos o conceito pro seu dia a dia.",
+            "analogia": "Pense nas suas gavetas/decisões/rotinas — vamos espelhar no computador.",
+            "visual": {
+              "type": "if",
+              "data": {
+                "cond": "condição X",
+                "then": "Ação A",
+                "else": "Ação B"
+              }
+            },
+            "code": {
+              "snippet": "int a=5; if(a<3) puts(\"Lo-fi\"); else if(a<6) puts(\"Clássica\");",
+              "explain": [
+                "Explicação linha a linha",
+                "Conectado à rotina"
+              ]
+            },
+            "exercise": {
+              "type": "mcq",
+              "prompt": "Conferiu a explicação?",
+              "options": [
+                "Sim",
+                "Rever"
+              ],
+              "answerIndex": 0
+            },
+            "celebracao": "Excelente! Outro passo 💙"
+          },
+          "c_code_full": "#include <stdio.h>\nint main(){ int a=5; if(a<3) puts(\"Lo-fi\"); else if(a<6) puts(\"Clássica\"); else puts(\"Respiração\"); return 0;}"
+        },
+        {
+          "id": "2.4",
+          "title": "&& e || (combinar condições)",
+          "duration": 15,
+          "steps": {
+            "acolhimento": "Você tá aqui, cansada mas firme — vamos em passos curtos.",
+            "contexto": "Trazemos o conceito pro seu dia a dia.",
+            "analogia": "Pense nas suas gavetas/decisões/rotinas — vamos espelhar no computador.",
+            "visual": {
+              "type": "if",
+              "data": {
+                "cond": "condição X",
+                "then": "Ação A",
+                "else": "Ação B"
+              }
+            },
+            "code": {
+              "snippet": "int ag=1,h=21; if(ag==1 && h>=20) puts(\"Relaxar\");",
+              "explain": [
+                "Explicação linha a linha",
+                "Conectado à rotina"
+              ]
+            },
+            "exercise": {
+              "type": "mcq",
+              "prompt": "Conferiu a explicação?",
+              "options": [
+                "Sim",
+                "Rever"
+              ],
+              "answerIndex": 0
+            },
+            "celebracao": "Excelente! Outro passo 💙"
+          },
+          "c_code_full": "#include <stdio.h>\nint main(){ int ag=1,h=21; if(ag==1 && h>=20) puts(\"Relaxar\"); return 0;}"
+        },
+        {
+          "id": "2.5",
+          "title": "! (negação)",
+          "duration": 15,
+          "steps": {
+            "acolhimento": "Você tá aqui, cansada mas firme — vamos em passos curtos.",
+            "contexto": "Trazemos o conceito pro seu dia a dia.",
+            "analogia": "Pense nas suas gavetas/decisões/rotinas — vamos espelhar no computador.",
+            "visual": {
+              "type": "if",
+              "data": {
+                "cond": "condição X",
+                "then": "Ação A",
+                "else": "Ação B"
+              }
+            },
+            "code": {
+              "snippet": "int med=0; if(!med) puts(\"Repor medicamento\");",
+              "explain": [
+                "Explicação linha a linha",
+                "Conectado à rotina"
+              ]
+            },
+            "exercise": {
+              "type": "mcq",
+              "prompt": "Conferiu a explicação?",
+              "options": [
+                "Sim",
+                "Rever"
+              ],
+              "answerIndex": 0
+            },
+            "celebracao": "Excelente! Outro passo 💙"
+          },
+          "c_code_full": "#include <stdio.h>\nint main(){ int med=0; if(!med) puts(\"Repor medicamento\"); return 0;}"
+        },
+        {
+          "id": "2.6",
+          "title": "Entrada + decisão",
+          "duration": 15,
+          "steps": {
+            "acolhimento": "Você tá aqui, cansada mas firme — vamos em passos curtos.",
+            "contexto": "Trazemos o conceito pro seu dia a dia.",
+            "analogia": "Pense nas suas gavetas/decisões/rotinas — vamos espelhar no computador.",
+            "visual": {
+              "type": "if",
+              "data": {
+                "cond": "condição X",
+                "then": "Ação A",
+                "else": "Ação B"
+              }
+            },
+            "code": {
+              "snippet": "int agit,h; scanf(\"%d %d\",&agit,&h);",
+              "explain": [
+                "Explicação linha a linha",
+                "Conectado à rotina"
+              ]
+            },
+            "exercise": {
+              "type": "mcq",
+              "prompt": "Conferiu a explicação?",
+              "options": [
+                "Sim",
+                "Rever"
+              ],
+              "answerIndex": 0
+            },
+            "celebracao": "Excelente! Outro passo 💙"
+          },
+          "c_code_full": "#include <stdio.h>\nint main(){ int agit,h; scanf(\"%d %d\",&agit,&h); if(agit<4 && h<21) puts(\"História\"); else puts(\"Música\"); return 0;}"
+        },
+        {
+          "id": "2.7",
+          "title": "if aninhado",
+          "duration": 15,
+          "steps": {
+            "acolhimento": "Você tá aqui, cansada mas firme — vamos em passos curtos.",
+            "contexto": "Trazemos o conceito pro seu dia a dia.",
+            "analogia": "Pense nas suas gavetas/decisões/rotinas — vamos espelhar no computador.",
+            "visual": {
+              "type": "if",
+              "data": {
+                "cond": "condição X",
+                "then": "Ação A",
+                "else": "Ação B"
+              }
+            },
+            "code": {
+              "snippet": "int t=38; if(t>37){ if(t>=39) puts(\"Alerta\"); }",
+              "explain": [
+                "Explicação linha a linha",
+                "Conectado à rotina"
+              ]
+            },
+            "exercise": {
+              "type": "mcq",
+              "prompt": "Conferiu a explicação?",
+              "options": [
+                "Sim",
+                "Rever"
+              ],
+              "answerIndex": 0
+            },
+            "celebracao": "Excelente! Outro passo 💙"
+          },
+          "c_code_full": "#include <stdio.h>\nint main(){ int t=38; if(t>37){ if(t>=39) puts(\"Alerta\"); else puts(\"Obs\"); } return 0;}"
+        },
+        {
+          "id": "2.8",
+          "title": "switch (menus)",
+          "duration": 15,
+          "steps": {
+            "acolhimento": "Você tá aqui, cansada mas firme — vamos em passos curtos.",
+            "contexto": "Trazemos o conceito pro seu dia a dia.",
+            "analogia": "Pense nas suas gavetas/decisões/rotinas — vamos espelhar no computador.",
+            "visual": {
+              "type": "if",
+              "data": {
+                "cond": "condição X",
+                "then": "Ação A",
+                "else": "Ação B"
+              }
+            },
+            "code": {
+              "snippet": "int op=2; switch(op){ case 1: puts(\"Fono\"); break; }",
+              "explain": [
+                "Explicação linha a linha",
+                "Conectado à rotina"
+              ]
+            },
+            "exercise": {
+              "type": "mcq",
+              "prompt": "Conferiu a explicação?",
+              "options": [
+                "Sim",
+                "Rever"
+              ],
+              "answerIndex": 0
+            },
+            "celebracao": "Excelente! Outro passo 💙"
+          },
+          "c_code_full": "#include <stdio.h>\nint main(){ int op=2; switch(op){ case 1: puts(\"Fono\"); break; case 2: puts(\"TO\"); break; default: puts(\"Descanso\"); } return 0;}"
+        },
+        {
+          "id": "2.9",
+          "title": "Validação de entrada",
+          "duration": 15,
+          "steps": {
+            "acolhimento": "Você tá aqui, cansada mas firme — vamos em passos curtos.",
+            "contexto": "Trazemos o conceito pro seu dia a dia.",
+            "analogia": "Pense nas suas gavetas/decisões/rotinas — vamos espelhar no computador.",
+            "visual": {
+              "type": "if",
+              "data": {
+                "cond": "condição X",
+                "then": "Ação A",
+                "else": "Ação B"
+              }
+            },
+            "code": {
+              "snippet": "int h; scanf(\"%d\",&h); if(h<0||h>23) puts(\"Inválida\");",
+              "explain": [
+                "Explicação linha a linha",
+                "Conectado à rotina"
+              ]
+            },
+            "exercise": {
+              "type": "mcq",
+              "prompt": "Conferiu a explicação?",
+              "options": [
+                "Sim",
+                "Rever"
+              ],
+              "answerIndex": 0
+            },
+            "celebracao": "Excelente! Outro passo 💙"
+          },
+          "c_code_full": "#include <stdio.h>\nint main(){ int h; scanf(\"%d\",&h); if(h<0||h>23) puts(\"Hora inválida\"); else printf(\"%d\\n\",h); return 0;}"
+        },
+        {
+          "id": "2.10",
+          "title": "PROJETO: Decisões Noturnas",
+          "duration": 15,
+          "steps": {
+            "acolhimento": "Você tá aqui, cansada mas firme — vamos em passos curtos.",
+            "contexto": "Trazemos o conceito pro seu dia a dia.",
+            "analogia": "Pense nas suas gavetas/decisões/rotinas — vamos espelhar no computador.",
+            "visual": {
+              "type": "if",
+              "data": {
+                "cond": "condição X",
+                "then": "Ação A",
+                "else": "Ação B"
+              }
+            },
+            "code": {
+              "snippet": "/* ver completo */",
+              "explain": [
+                "Explicação linha a linha",
+                "Conectado à rotina"
+              ]
+            },
+            "exercise": {
+              "type": "mcq",
+              "prompt": "Conferiu a explicação?",
+              "options": [
+                "Sim",
+                "Rever"
+              ],
+              "answerIndex": 0
+            },
+            "celebracao": "Excelente! Outro passo 💙"
+          },
+          "c_code_full": "#include <stdio.h>\nint main(){ int agit,h,barulho; scanf(\"%d %d %d\",&agit,&h,&barulho); if(barulho){ puts(\"Tampões\"); return 0;} if(agit<4 && h<21) puts(\"História\"); else if(agit<6) puts(\"Música\"); else puts(\"Respiração\"); return 0;}"
+        }
+      ]
+    },
+    {
+      "id": "m3",
+      "title": "Repetição de Tarefas (loops)",
+      "color": "#ffd166",
+      "lessons": [
+        {
+          "id": "3.1",
+          "title": "for (7 dias)",
+          "duration": 15,
+          "steps": {
+            "acolhimento": "Você tá aqui, cansada mas firme — vamos em passos curtos.",
+            "contexto": "Trazemos o conceito pro seu dia a dia.",
+            "analogia": "Pense nas suas gavetas/decisões/rotinas — vamos espelhar no computador.",
+            "visual": {
+              "type": "for",
+              "data": {
+                "from": 1,
+                "to": 7,
+                "label": "dia"
+              }
+            },
+            "code": {
+              "snippet": "for(int d=1; d<=7; d++){ printf(\"Dia %d\\n\", d);}",
+              "explain": [
+                "Explicação linha a linha",
+                "Conectado à rotina"
+              ]
+            },
+            "exercise": {
+              "type": "mcq",
+              "prompt": "Conferiu a explicação?",
+              "options": [
+                "Sim",
+                "Rever"
+              ],
+              "answerIndex": 0
+            },
+            "celebracao": "Excelente! Outro passo 💙"
+          },
+          "c_code_full": "#include <stdio.h>\nint main(){ for(int d=1; d<=7; d++){ printf(\"Dia %d\\n\", d);} return 0;}"
+        },
+        {
+          "id": "3.2",
+          "title": "while (condição)",
+          "duration": 15,
+          "steps": {
+            "acolhimento": "Você tá aqui, cansada mas firme — vamos em passos curtos.",
+            "contexto": "Trazemos o conceito pro seu dia a dia.",
+            "analogia": "Pense nas suas gavetas/decisões/rotinas — vamos espelhar no computador.",
+            "visual": {
+              "type": "for",
+              "data": {
+                "from": 1,
+                "to": 7,
+                "label": "dia"
+              }
+            },
+            "code": {
+              "snippet": "int itens=3; while(itens>0){ puts(\"Item\"); itens--; }",
+              "explain": [
+                "Explicação linha a linha",
+                "Conectado à rotina"
+              ]
+            },
+            "exercise": {
+              "type": "mcq",
+              "prompt": "Conferiu a explicação?",
+              "options": [
+                "Sim",
+                "Rever"
+              ],
+              "answerIndex": 0
+            },
+            "celebracao": "Excelente! Outro passo 💙"
+          },
+          "c_code_full": "#include <stdio.h>\nint main(){ int itens=3; while(itens>0){ puts(\"Item\"); itens--; } return 0;}"
+        },
+        {
+          "id": "3.3",
+          "title": "do...while",
+          "duration": 15,
+          "steps": {
+            "acolhimento": "Você tá aqui, cansada mas firme — vamos em passos curtos.",
+            "contexto": "Trazemos o conceito pro seu dia a dia.",
+            "analogia": "Pense nas suas gavetas/decisões/rotinas — vamos espelhar no computador.",
+            "visual": {
+              "type": "for",
+              "data": {
+                "from": 1,
+                "to": 7,
+                "label": "dia"
+              }
+            },
+            "code": {
+              "snippet": "int r=1; do{ puts(\"Mostrar menu\"); r=0; }while(r==1);",
+              "explain": [
+                "Explicação linha a linha",
+                "Conectado à rotina"
+              ]
+            },
+            "exercise": {
+              "type": "mcq",
+              "prompt": "Conferiu a explicação?",
+              "options": [
+                "Sim",
+                "Rever"
+              ],
+              "answerIndex": 0
+            },
+            "celebracao": "Excelente! Outro passo 💙"
+          },
+          "c_code_full": "#include <stdio.h>\nint main(){ int r=1; do{ puts(\"Mostrar menu\"); r=0; }while(r==1); return 0;}"
+        },
+        {
+          "id": "3.4",
+          "title": "Array (strings)",
+          "duration": 15,
+          "steps": {
+            "acolhimento": "Você tá aqui, cansada mas firme — vamos em passos curtos.",
+            "contexto": "Trazemos o conceito pro seu dia a dia.",
+            "analogia": "Pense nas suas gavetas/decisões/rotinas — vamos espelhar no computador.",
+            "visual": {
+              "type": "for",
+              "data": {
+                "from": 1,
+                "to": 7,
+                "label": "dia"
+              }
+            },
+            "code": {
+              "snippet": "char dias[5][10]={\"Seg\",\"Ter\",\"Qua\",\"Qui\",\"Sex\"};",
+              "explain": [
+                "Explicação linha a linha",
+                "Conectado à rotina"
+              ]
+            },
+            "exercise": {
+              "type": "mcq",
+              "prompt": "Conferiu a explicação?",
+              "options": [
+                "Sim",
+                "Rever"
+              ],
+              "answerIndex": 0
+            },
+            "celebracao": "Excelente! Outro passo 💙"
+          },
+          "c_code_full": "#include <stdio.h>\nint main(){ char dias[5][10]={\"Seg\",\"Ter\",\"Qua\",\"Qui\",\"Sex\"}; for(int i=0;i<5;i++) puts(dias[i]); return 0;}"
+        },
+        {
+          "id": "3.5",
+          "title": "Somatório",
+          "duration": 15,
+          "steps": {
+            "acolhimento": "Você tá aqui, cansada mas firme — vamos em passos curtos.",
+            "contexto": "Trazemos o conceito pro seu dia a dia.",
+            "analogia": "Pense nas suas gavetas/decisões/rotinas — vamos espelhar no computador.",
+            "visual": {
+              "type": "for",
+              "data": {
+                "from": 1,
+                "to": 7,
+                "label": "dia"
+              }
+            },
+            "code": {
+              "snippet": "int soma=0; for(int i=1;i<=5;i++) soma+=i;",
+              "explain": [
+                "Explicação linha a linha",
+                "Conectado à rotina"
+              ]
+            },
+            "exercise": {
+              "type": "mcq",
+              "prompt": "Conferiu a explicação?",
+              "options": [
+                "Sim",
+                "Rever"
+              ],
+              "answerIndex": 0
+            },
+            "celebracao": "Excelente! Outro passo 💙"
+          },
+          "c_code_full": "#include <stdio.h>\nint main(){ int soma=0; for(int i=1;i<=5;i++) soma+=i; printf(\"%d\\n\",soma); return 0;}"
+        },
+        {
+          "id": "3.6",
+          "title": "Mínimo",
+          "duration": 15,
+          "steps": {
+            "acolhimento": "Você tá aqui, cansada mas firme — vamos em passos curtos.",
+            "contexto": "Trazemos o conceito pro seu dia a dia.",
+            "analogia": "Pense nas suas gavetas/decisões/rotinas — vamos espelhar no computador.",
+            "visual": {
+              "type": "for",
+              "data": {
+                "from": 1,
+                "to": 7,
+                "label": "dia"
+              }
+            },
+            "code": {
+              "snippet": "int v[5]={3,8,2,6,4}; // min",
+              "explain": [
+                "Explicação linha a linha",
+                "Conectado à rotina"
+              ]
+            },
+            "exercise": {
+              "type": "mcq",
+              "prompt": "Conferiu a explicação?",
+              "options": [
+                "Sim",
+                "Rever"
+              ],
+              "answerIndex": 0
+            },
+            "celebracao": "Excelente! Outro passo 💙"
+          },
+          "c_code_full": "#include <stdio.h>\nint main(){ int v[5]={3,8,2,6,4}; int min=v[0]; for(int i=1;i<5;i++) if(v[i]<min) min=v[i]; printf(\"%d\\n\",min); return 0;}"
+        },
+        {
+          "id": "3.7",
+          "title": "break/continue",
+          "duration": 15,
+          "steps": {
+            "acolhimento": "Você tá aqui, cansada mas firme — vamos em passos curtos.",
+            "contexto": "Trazemos o conceito pro seu dia a dia.",
+            "analogia": "Pense nas suas gavetas/decisões/rotinas — vamos espelhar no computador.",
+            "visual": {
+              "type": "for",
+              "data": {
+                "from": 1,
+                "to": 7,
+                "label": "dia"
+              }
+            },
+            "code": {
+              "snippet": "for(int i=0;i<10;i++){ if(i==5) break; if(i%2==0) continue; }",
+              "explain": [
+                "Explicação linha a linha",
+                "Conectado à rotina"
+              ]
+            },
+            "exercise": {
+              "type": "mcq",
+              "prompt": "Conferiu a explicação?",
+              "options": [
+                "Sim",
+                "Rever"
+              ],
+              "answerIndex": 0
+            },
+            "celebracao": "Excelente! Outro passo 💙"
+          },
+          "c_code_full": "#include <stdio.h>\nint main(){ for(int i=0;i<10;i++){ if(i==5) break; if(i%2==0) continue; printf(\"%d\\n\",i);} return 0;}"
+        },
+        {
+          "id": "3.8",
+          "title": "Sentinela",
+          "duration": 15,
+          "steps": {
+            "acolhimento": "Você tá aqui, cansada mas firme — vamos em passos curtos.",
+            "contexto": "Trazemos o conceito pro seu dia a dia.",
+            "analogia": "Pense nas suas gavetas/decisões/rotinas — vamos espelhar no computador.",
+            "visual": {
+              "type": "for",
+              "data": {
+                "from": 1,
+                "to": 7,
+                "label": "dia"
+              }
+            },
+            "code": {
+              "snippet": "int x; while(scanf(\"%d\",&x)==1 && x!=-1){ }",
+              "explain": [
+                "Explicação linha a linha",
+                "Conectado à rotina"
+              ]
+            },
+            "exercise": {
+              "type": "mcq",
+              "prompt": "Conferiu a explicação?",
+              "options": [
+                "Sim",
+                "Rever"
+              ],
+              "answerIndex": 0
+            },
+            "celebracao": "Excelente! Outro passo 💙"
+          },
+          "c_code_full": "#include <stdio.h>\nint main(){ int x; while(scanf(\"%d\",&x)==1 && x!=-1){ printf(\"%d\\n\",x);} return 0;}"
+        },
+        {
+          "id": "3.9",
+          "title": "Laços aninhados",
+          "duration": 15,
+          "steps": {
+            "acolhimento": "Você tá aqui, cansada mas firme — vamos em passos curtos.",
+            "contexto": "Trazemos o conceito pro seu dia a dia.",
+            "analogia": "Pense nas suas gavetas/decisões/rotinas — vamos espelhar no computador.",
+            "visual": {
+              "type": "for",
+              "data": {
+                "from": 1,
+                "to": 7,
+                "label": "dia"
+              }
+            },
+            "code": {
+              "snippet": "for(int l=1;l<=3;l++){ for(int c=1;c<=3;c++){ printf(\"%d \",l*c);} }",
+              "explain": [
+                "Explicação linha a linha",
+                "Conectado à rotina"
+              ]
+            },
+            "exercise": {
+              "type": "mcq",
+              "prompt": "Conferiu a explicação?",
+              "options": [
+                "Sim",
+                "Rever"
+              ],
+              "answerIndex": 0
+            },
+            "celebracao": "Excelente! Outro passo 💙"
+          },
+          "c_code_full": "#include <stdio.h>\nint main(){ for(int l=1;l<=3;l++){ for(int c=1;c<=3;c++){ printf(\"%d \",l*c);} puts(\"\"); } return 0;}"
+        },
+        {
+          "id": "3.10",
+          "title": "PROJETO: Agenda Semanal",
+          "duration": 15,
+          "steps": {
+            "acolhimento": "Você tá aqui, cansada mas firme — vamos em passos curtos.",
+            "contexto": "Trazemos o conceito pro seu dia a dia.",
+            "analogia": "Pense nas suas gavetas/decisões/rotinas — vamos espelhar no computador.",
+            "visual": {
+              "type": "for",
+              "data": {
+                "from": 1,
+                "to": 7,
+                "label": "dia"
+              }
+            },
+            "code": {
+              "snippet": "/* ver completo */",
+              "explain": [
+                "Explicação linha a linha",
+                "Conectado à rotina"
+              ]
+            },
+            "exercise": {
+              "type": "mcq",
+              "prompt": "Conferiu a explicação?",
+              "options": [
+                "Sim",
+                "Rever"
+              ],
+              "answerIndex": 0
+            },
+            "celebracao": "Excelente! Outro passo 💙"
+          },
+          "c_code_full": "#include <stdio.h>\nint main(){ const char* tarefas[3]={\"terapia\",\"estudo\",\"descanso\"}; for(int d=1; d<=7; d++){ printf(\"Dia %d:\",d); for(int t=0;t<3;t++) printf(\" %s\",tarefas[t]); puts(\"\"); } return 0;}"
+        }
+      ]
+    },
+    {
+      "id": "m4",
+      "title": "Estruturas de Dados 1: Vetores, Matrizes e Strings",
+      "color": "#ff8c8c",
+      "lessons": [
+        {
+          "id": "4.1",
+          "title": "Vetores — conceito e uso",
+          "duration": 15,
+          "steps": {
+            "acolhimento": "Você tá aqui, cansada mas firme — vamos em passos curtos.",
+            "contexto": "Trazemos o conceito pro seu dia a dia.",
+            "analogia": "Pense nas suas gavetas/decisões/rotinas — vamos espelhar no computador.",
+            "visual": {
+              "type": "for",
+              "data": {
+                "from": 0,
+                "to": 4,
+                "label": "índice"
+              }
+            },
+            "code": {
+              "snippet": "int v[5]={1,2,3,4,5};",
+              "explain": [
+                "Explicação linha a linha",
+                "Conectado à rotina"
+              ]
+            },
+            "exercise": {
+              "type": "mcq",
+              "prompt": "Conferiu a explicação?",
+              "options": [
+                "Sim",
+                "Rever"
+              ],
+              "answerIndex": 0
+            },
+            "celebracao": "Excelente! Outro passo 💙"
+          },
+          "c_code_full": "#include <stdio.h>\nint main(){ int v[5]={1,2,3,4,5}; for(int i=0;i<5;i++) printf(\"%d \",v[i]); return 0;}"
+        },
+        {
+          "id": "4.2",
+          "title": "Leitura e soma de vetor",
+          "duration": 15,
+          "steps": {
+            "acolhimento": "Você tá aqui, cansada mas firme — vamos em passos curtos.",
+            "contexto": "Trazemos o conceito pro seu dia a dia.",
+            "analogia": "Pense nas suas gavetas/decisões/rotinas — vamos espelhar no computador.",
+            "visual": {
+              "type": "for",
+              "data": {
+                "from": 0,
+                "to": 4,
+                "label": "índice"
+              }
+            },
+            "code": {
+              "snippet": "int n[3]; // scanf",
+              "explain": [
+                "Explicação linha a linha",
+                "Conectado à rotina"
+              ]
+            },
+            "exercise": {
+              "type": "mcq",
+              "prompt": "Conferiu a explicação?",
+              "options": [
+                "Sim",
+                "Rever"
+              ],
+              "answerIndex": 0
+            },
+            "celebracao": "Excelente! Outro passo 💙"
+          },
+          "c_code_full": "#include <stdio.h>\nint main(){ int n[3]; int s=0; for(int i=0;i<3;i++){ scanf(\"%d\",&n[i]); s+=n[i]; } printf(\"%d\\n\",s); return 0;}"
+        },
+        {
+          "id": "4.3",
+          "title": "Busca de maior/menor",
+          "duration": 15,
+          "steps": {
+            "acolhimento": "Você tá aqui, cansada mas firme — vamos em passos curtos.",
+            "contexto": "Trazemos o conceito pro seu dia a dia.",
+            "analogia": "Pense nas suas gavetas/decisões/rotinas — vamos espelhar no computador.",
+            "visual": {
+              "type": "for",
+              "data": {
+                "from": 0,
+                "to": 4,
+                "label": "índice"
+              }
+            },
+            "code": {
+              "snippet": "// min/max",
+              "explain": [
+                "Explicação linha a linha",
+                "Conectado à rotina"
+              ]
+            },
+            "exercise": {
+              "type": "mcq",
+              "prompt": "Conferiu a explicação?",
+              "options": [
+                "Sim",
+                "Rever"
+              ],
+              "answerIndex": 0
+            },
+            "celebracao": "Excelente! Outro passo 💙"
+          },
+          "c_code_full": "#include <stdio.h>\nint main(){ int v[5]={3,8,2,6,4}; int min=v[0]; for(int i=1;i<5;i++) if(v[i]<min) min=v[i]; printf(\"%d\\n\",min); return 0;}"
+        },
+        {
+          "id": "4.4",
+          "title": "Matrizes 2D — percorrer",
+          "duration": 15,
+          "steps": {
+            "acolhimento": "Você tá aqui, cansada mas firme — vamos em passos curtos.",
+            "contexto": "Trazemos o conceito pro seu dia a dia.",
+            "analogia": "Pense nas suas gavetas/decisões/rotinas — vamos espelhar no computador.",
+            "visual": {
+              "type": "for",
+              "data": {
+                "from": 0,
+                "to": 4,
+                "label": "índice"
+              }
+            },
+            "code": {
+              "snippet": "int m[2][2];",
+              "explain": [
+                "Explicação linha a linha",
+                "Conectado à rotina"
+              ]
+            },
+            "exercise": {
+              "type": "mcq",
+              "prompt": "Conferiu a explicação?",
+              "options": [
+                "Sim",
+                "Rever"
+              ],
+              "answerIndex": 0
+            },
+            "celebracao": "Excelente! Outro passo 💙"
+          },
+          "c_code_full": "#include <stdio.h>\nint main(){ int m[2][2]={{1,2},{3,4}}; int s=0; for(int i=0;i<2;i++) for(int j=0;j<2;j++) s+=m[i][j]; printf(\"%d\\n\",s); return 0;}"
+        },
+        {
+          "id": "4.5",
+          "title": "Strings (char[])",
+          "duration": 15,
+          "steps": {
+            "acolhimento": "Você tá aqui, cansada mas firme — vamos em passos curtos.",
+            "contexto": "Trazemos o conceito pro seu dia a dia.",
+            "analogia": "Pense nas suas gavetas/decisões/rotinas — vamos espelhar no computador.",
+            "visual": {
+              "type": "for",
+              "data": {
+                "from": 0,
+                "to": 4,
+                "label": "índice"
+              }
+            },
+            "code": {
+              "snippet": "char nome[20];",
+              "explain": [
+                "Explicação linha a linha",
+                "Conectado à rotina"
+              ]
+            },
+            "exercise": {
+              "type": "mcq",
+              "prompt": "Conferiu a explicação?",
+              "options": [
+                "Sim",
+                "Rever"
+              ],
+              "answerIndex": 0
+            },
+            "celebracao": "Excelente! Outro passo 💙"
+          },
+          "c_code_full": "#include <stdio.h>\nint main(){ char nome[20]; scanf(\"%19s\",nome); printf(\"Oi, %s\\n\",nome); return 0;}"
+        },
+        {
+          "id": "4.6",
+          "title": "PROJETO: Tabela da Rotina",
+          "duration": 15,
+          "steps": {
+            "acolhimento": "Você tá aqui, cansada mas firme — vamos em passos curtos.",
+            "contexto": "Trazemos o conceito pro seu dia a dia.",
+            "analogia": "Pense nas suas gavetas/decisões/rotinas — vamos espelhar no computador.",
+            "visual": {
+              "type": "for",
+              "data": {
+                "from": 0,
+                "to": 4,
+                "label": "índice"
+              }
+            },
+            "code": {
+              "snippet": "// projeto",
+              "explain": [
+                "Explicação linha a linha",
+                "Conectado à rotina"
+              ]
+            },
+            "exercise": {
+              "type": "mcq",
+              "prompt": "Conferiu a explicação?",
+              "options": [
+                "Sim",
+                "Rever"
+              ],
+              "answerIndex": 0
+            },
+            "celebracao": "Excelente! Outro passo 💙"
+          },
+          "c_code_full": "#include <stdio.h>\nint main(){ const char* tarefas[3]={\"terapia\",\"estudo\",\"descanso\"}; for(int d=1; d<=7; d++){ printf(\"Dia %d:\",d); for(int t=0;t<3;t++) printf(\" %s\",tarefas[t]); puts(\"\"); } return 0;}"
+        }
+      ]
+    }
+  ],
+  "ACHIEVEMENTS": [
+    {
+      "id": "midnight",
+      "name": "Madrugada Produtiva",
+      "desc": "Estudar após 22h"
+    },
+    {
+      "id": "multitask",
+      "name": "Mãe Multitarefa",
+      "desc": "Completar lição entre atividades do Theo"
+    },
+    {
+      "id": "comeback",
+      "name": "Persistência de Mãe",
+      "desc": "Retomar após pausa de 3+ dias"
+    },
+    {
+      "id": "firstwin",
+      "name": "Primeira Vitória",
+      "desc": "Primeiro código C funcionando"
+    }
+  ],
+  "QUIZZES_keys": [
+    "m0",
+    "m1",
+    "m2",
+    "m3",
+    "m4"
+  ],
+  "EXAM_len": 70
+}
