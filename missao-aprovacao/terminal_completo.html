@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratório Prático - Terminal Linux</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+            color: #00ff00;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .header {
+            background: rgba(0, 255, 0, 0.1);
+            border: 2px solid #00ff00;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .header h1 {
+            color: #00ffff;
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px #00ffff;
+        }
+
+        .missao-info {
+            background: rgba(255, 255, 0, 0.1);
+            border-left: 4px solid #ffff00;
+            padding: 15px;
+            margin: 10px 0;
+        }
+
+        .missao-info h2 {
+            color: #ffff00;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .missao-info p {
+            color: #aaaaaa;
+            line-height: 1.6;
+        }
+
+        .dica {
+            color: #00ffff;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .terminal {
+            background: #000000;
+            border: 2px solid #00ff00;
+            border-radius: 8px;
+            box-shadow: 0 0 30px rgba(0, 255, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .terminal-header {
+            background: linear-gradient(180deg, #333 0%, #222 100%);
+            padding: 10px 15px;
+            border-bottom: 2px solid #00ff00;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .terminal-buttons {
+            display: flex;
+            gap: 6px;
+        }
+
+        .btn-circle {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .btn-red { background: #ff5555; }
+        .btn-yellow { background: #ffff55; }
+        .btn-green { background: #55ff55; }
+
+        .terminal-title {
+            color: #aaa;
+            font-size: 14px;
+            margin-left: 10px;
+        }
+
+        .terminal-body {
+            padding: 20px;
+            height: 500px;
+            overflow-y: auto;
+            background: #000;
+        }
+
+        .terminal-line {
+            margin: 5px 0;
+            line-height: 1.4;
+        }
+
+        .prompt {
+            color: #00ff00;
+            font-weight: bold;
+        }
+
+        .user-input {
+            color: #ffffff;
+        }
+
+        .output {
+            color: #00ff00;
+        }
+
+        .output-error {
+            color: #ff5555;
+        }
+
+        .output-warning {
+            color: #ffff00;
+        }
+
+        .output-info {
+            color: #00ffff;
+        }
+
+        .output-success {
+            color: #00ff00;
+            font-weight: bold;
+        }
+
+        .input-line {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .input-line .prompt {
+            margin-right: 8px;
+        }
+
+        #command-input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            color: #ffffff;
+            font-family: 'Courier New', monospace;
+            font-size: 16px;
+            outline: none;
+            caret-color: #00ff00;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 8px;
+            height: 18px;
+            background: #00ff00;
+            animation: blink 1s infinite;
+            margin-left: 2px;
+        }
+
+        @keyframes blink {
+            0%, 49% { opacity: 1; }
+            50%, 100% { opacity: 0; }
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(0, 255, 0, 0.05);
+            border: 1px solid #00ff00;
+            border-radius: 8px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-label {
+            color: #aaa;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+
+        .stat-value {
+            color: #00ffff;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .btn {
+            background: #00ff00;
+            color: #000;
+            border: none;
+            padding: 12px 24px;
+            font-family: 'Courier New', monospace;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.3s;
+            margin: 10px 5px;
+        }
+
+        .btn:hover {
+            background: #00ffff;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: #333;
+            color: #00ff00;
+            border: 2px solid #00ff00;
+        }
+
+        .btn-secondary:hover {
+            background: #00ff00;
+            color: #000;
+        }
+
+        .actions {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        /* Scrollbar customizado */
+        .terminal-body::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        .terminal-body::-webkit-scrollbar-track {
+            background: #111;
+        }
+
+        .terminal-body::-webkit-scrollbar-thumb {
+            background: #00ff00;
+            border-radius: 5px;
+        }
+
+        .terminal-body::-webkit-scrollbar-thumb:hover {
+            background: #00ffff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header com informações da missão -->
+        <div class="header">
+            <h1>🎯 LABORATÓRIO PRÁTICO - MISSÃO COPCIBER</h1>
+            <div id="missao-atual" class="missao-info">
+                <!-- Será preenchido dinamicamente -->
+            </div>
+        </div>
+
+        <!-- Terminal -->
+        <div class="terminal">
+            <div class="terminal-header">
+                <div class="terminal-buttons">
+                    <div class="btn-circle btn-red"></div>
+                    <div class="btn-circle btn-yellow"></div>
+                    <div class="btn-circle btn-green"></div>
+                </div>
+                <div class="terminal-title">root@kali-security:~</div>
+            </div>
+            <div class="terminal-body" id="terminal-output">
+                <!-- Output do terminal será inserido aqui -->
+            </div>
+        </div>
+
+        <!-- Estatísticas -->
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-label">XP Ganho</div>
+                <div class="stat-value" id="xp-ganho">0</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">Tentativas</div>
+                <div class="stat-value" id="tentativas">0</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">Missões Completas</div>
+                <div class="stat-value" id="missoes-completas">0</div>
+            </div>
+        </div>
+
+        <!-- Ações -->
+        <div class="actions">
+            <button class="btn" onclick="novaMissao()">🔄 Nova Missão</button>
+            <button class="btn btn-secondary" onclick="limparTerminal()">🗑️ Limpar Terminal</button>
+            <button class="btn btn-secondary" onclick="mostrarAjuda()">❓ Ajuda</button>
+        </div>
+    </div>
+
+    <script>
+        // ============================================================
+        // BANCO DE DADOS DE CENÁRIOS
+        // ============================================================
+        const cenarios = [
+            {
+                id: 1,
+                titulo: "Servidor Apache Parou de Responder",
+                descricao: "O servidor web Apache2 está inoperante. Os usuários não conseguem acessar o site. Investigue o status do serviço e resolva o problema.",
+                dificuldade: "Básico",
+                dicas: [
+                    "Use 'service apache2 status' para verificar o estado do serviço",
+                    "Comandos de gerenciamento: start, stop, restart, status",
+                    "Você também pode usar 'systemctl' no lugar de 'service'"
+                ],
+                solucoesValidas: [
+                    "service apache2 start",
+                    "systemctl start apache2",
+                    "sudo service apache2 start",
+                    "/etc/init.d/apache2 start"
+                ],
+                xp: 50
+            },
+            {
+                id: 2,
+                titulo: "Porta Suspeita Detectada",
+                descricao: "O IDS detectou uma porta TCP 4444 aberta no servidor. Esta porta é comumente usada por backdoors. Identifique qual processo está usando esta porta.",
+                dificuldade: "Intermediário",
+                dicas: [
+                    "Use 'netstat -tulpn' para listar portas e processos",
+                    "A flag -p mostra o PID (Process ID)",
+                    "Você também pode usar 'ss -tulpn' ou 'lsof -i :4444'"
+                ],
+                solucoesValidas: [
+                    "netstat -tulpn | grep 4444",
+                    "ss -tulpn | grep 4444",
+                    "lsof -i :4444",
+                    "netstat -anp | grep 4444"
+                ],
+                xp: 75
+            },
+            {
+                id: 3,
+                titulo: "Permissões Críticas Comprometidas",
+                descricao: "O arquivo /etc/shadow foi encontrado com permissões 777 (leitura/escrita para todos). Isso é uma falha crítica de segurança! Corrija imediatamente.",
+                dificuldade: "Básico",
+                dicas: [
+                    "/etc/shadow deve ter permissões muito restritas",
+                    "Apenas root deve poder ler este arquivo",
+                    "Use 'chmod 640' ou 'chmod 600' para corrigir"
+                ],
+                solucoesValidas: [
+                    "chmod 640 /etc/shadow",
+                    "chmod 600 /etc/shadow",
+                    "chmod 000 /etc/shadow"
+                ],
+                xp: 60
+            },
+            {
+                id: 4,
+                titulo: "Ataque de Força Bruta SSH",
+                descricao: "Logs mostram múltiplas tentativas de login SSH falhadas. Analise o log de autenticação para encontrar as tentativas suspeitas.",
+                dificuldade: "Intermediário",
+                dicas: [
+                    "Logs de autenticação ficam em /var/log/auth.log",
+                    "Use 'grep' para filtrar por 'Failed password'",
+                    "Comandos úteis: cat, grep, tail, less"
+                ],
+                solucoesValidas: [
+                    "grep 'Failed password' /var/log/auth.log",
+                    "cat /var/log/auth.log | grep Failed",
+                    "tail -f /var/log/auth.log",
+                    "less /var/log/auth.log"
+                ],
+                xp: 70
+            },
+            {
+                id: 5,
+                titulo: "Firewall Desativado",
+                descricao: "Durante uma auditoria, descobrimos que o firewall UFW está desativado, deixando o servidor exposto. Ative o firewall e garanta que SSH (porta 22) esteja liberado.",
+                dificuldade: "Avançado",
+                dicas: [
+                    "UFW = Uncomplicated Firewall",
+                    "Sempre libere SSH ANTES de ativar o firewall!",
+                    "Comandos: 'ufw allow 22' depois 'ufw enable'"
+                ],
+                solucoesValidas: [
+                    "ufw allow ssh && ufw enable",
+                    "ufw allow 22 && ufw enable",
+                    "ufw enable",
+                    "ufw allow 22/tcp && ufw enable"
+                ],
+                xp: 100
+            },
+            {
+                id: 6,
+                titulo: "Processo Zumbi Consumindo Recursos",
+                descricao: "Um processo está consumindo 100% da CPU. Identifique o processo com maior uso de CPU usando ferramentas de linha de comando.",
+                dificuldade: "Básico",
+                dicas: [
+                    "Use 'top' para ver processos em tempo real",
+                    "'ps aux --sort=-%cpu' mostra ordenado por CPU",
+                    "'htop' é uma alternativa mais visual (se instalado)"
+                ],
+                solucoesValidas: [
+                    "top",
+                    "ps aux --sort=-%cpu",
+                    "ps aux | grep cpu",
+                    "htop"
+                ],
+                xp: 55
+            },
+            {
+                id: 7,
+                titulo: "Disco Cheio - Sistema em Risco",
+                descricao: "O sistema está lento e logs indicam problemas de espaço em disco. Verifique o uso de disco das partições montadas.",
+                dificuldade: "Básico",
+                dicas: [
+                    "'df -h' mostra uso de disco em formato legível",
+                    "A flag -h significa 'human-readable'",
+                    "'du -sh /*' mostra tamanho de cada diretório raiz"
+                ],
+                solucoesValidas: [
+                    "df -h",
+                    "df",
+                    "du -sh /*",
+                    "df -h /"
+                ],
+                xp: 50
+            }
+        ];
+
+        // ============================================================
+        // VARIÁVEIS GLOBAIS
+        // ============================================================
+        let cenarioAtual = null;
+        let tentativas = 0;
+        let xpTotal = 0;
+        let missoesCompletas = 0;
+        let comandosHistorico = [];
+
+        // ============================================================
+        // INICIALIZAÇÃO
+        // ============================================================
+        window.onload = function() {
+            novaMissao();
+            document.getElementById('command-input').focus();
+            
+            // Enter para executar comando
+            document.getElementById('command-input').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    const comando = this.value.trim();
+                    if (comando) {
+                        executarComando(comando);
+                        this.value = '';
+                    }
+                }
+            });
+
+            // Manter foco no input
+            document.getElementById('terminal-output').addEventListener('click', function() {
+                document.getElementById('command-input').focus();
+            });
+        };
+
+        // ============================================================
+        // FUNÇÕES PRINCIPAIS
+        // ============================================================
+        function novaMissao() {
+            // Seleciona cenário aleatório
+            cenarioAtual = cenarios[Math.floor(Math.random() * cenarios.length)];
+            tentativas = 0;
+            
+            // Atualiza UI com informações da missão
+            document.getElementById('missao-atual').innerHTML = `
+                <h2>🎯 ${cenarioAtual.titulo}</h2>
+                <p>${cenarioAtual.descricao}</p>
+                <p class="dica">💡 Dica: ${cenarioAtual.dicas[0]}</p>
+            `;
+            
+            // Limpa terminal e mostra boas-vindas
+            limparTerminal();
+            print('='.repeat(70), 'info');
+            print(`MISSÃO: ${cenarioAtual.titulo}`, 'info');
+            print(`DIFICULDADE: ${cenarioAtual.dificuldade}`, 'warning');
+            print('='.repeat(70), 'info');
+            print('');
+            print(cenarioAtual.descricao, 'output');
+            print('');
+            print('Digite "help" para ver comandos disponíveis.', 'output');
+            print('Digite "hint" para receber uma dica.', 'output');
+            print('');
+        }
+
+        function executarComando(comando) {
+            tentativas++;
+            document.getElementById('tentativas').textContent = tentativas;
+            comandosHistorico.push(comando);
+            
+            // Mostra comando digitado
+            print(`root@kali:~# ${comando}`, 'user-input');
+            
+            const cmdLower = comando.toLowerCase().trim();
+            
+            // Comandos especiais
+            if (cmdLower === 'help') {
+                mostrarAjuda();
+                return;
+            }
+            
+            if (cmdLower === 'hint') {
+                mostrarDica();
+                return;
+            }
+            
+            if (cmdLower === 'clear' || cmdLower === 'cls') {
+                limparTerminal();
+                return;
+            }
+            
+            // Verifica se é solução válida
+            const solucaoCorreta = cenarioAtual.solucoesValidas.some(sol => 
+                cmdLower.includes(sol.toLowerCase()) || sol.toLowerCase().includes(cmdLower)
+            );
+            
+            if (solucaoCorreta) {
+                missaoConcluida();
+                return;
+            }
+            
+            // Simular outputs de comandos comuns
+            simularComando(cmdLower);
+        }
+
+        function simularComando(cmd) {
+            if (cmd.startsWith('ls')) {
+                print('bin   dev  home  lib    media  opt   root  sbin  sys  usr');
+                print('boot  etc  lib64  mnt   proc  run   srv   tmp  var');
+            }
+            else if (cmd.startsWith('pwd')) {
+                print('/root');
+            }
+            else if (cmd.includes('ps') || cmd.includes('top')) {
+                print('  PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND');
+                print('    1 root      20   0  169852  13684   8912 S   0.0   0.3   0:01.23 systemd');
+                print(' 1337 www-data  20   0  283456  45123  12456 S   0.0   1.1   0:05.67 apache2');
+                if (cenarioAtual.id === 6) {
+                    print(' 6666 nobody    20   0  999999 888888 777777 R  99.9  44.4 999:99.99 malware');
+                }
+            }
+            else if (cmd.includes('netstat') || cmd.includes('ss')) {
+                print('Active Internet connections (servers and established)');
+                print('Proto Recv-Q Send-Q Local Address           Foreign Address         State');
+                print('tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN');
+                print('tcp        0      0 0.0.0.0:80              0.0.0.0:*               LISTEN');
+                if (cenarioAtual.id === 2) {
+                    print('tcp        0      0 0.0.0.0:4444            0.0.0.0:*               LISTEN');
+                }
+            }
+            else if (cmd.includes('service') && cmd.includes('status')) {
+                if (cenarioAtual.id === 1 && cmd.includes('apache')) {
+                    print('● apache2.service - The Apache HTTP Server', 'error');
+                    print('   Loaded: loaded (/lib/systemd/system/apache2.service)', 'error');
+                    print('   Active: inactive (dead)', 'error');
+                    print('');
+                    print('💡 O serviço está parado! Use "service apache2 start" para iniciá-lo.', 'warning');
+                } else {
+                    print('● service - Active: active (running)', 'success');
+                }
+            }
+            else if (cmd.includes('df')) {
+                print('Filesystem      Size  Used Avail Use% Mounted on');
+                print('/dev/sda1        50G   45G  2.5G  95% /');
+                print('/dev/sda2       100G   20G   76G  21% /home');
+            }
+            else if (cmd.includes('ufw status')) {
+                print('Status: inactive', 'error');
+                print('💡 O firewall está desativado!', 'warning');
+            }
+            else if (cmd.includes('grep') || cmd.includes('cat') || cmd.includes('tail')) {
+                if (cmd.includes('auth.log') || cmd.includes('Failed')) {
+                    print('Jan 15 10:23:45 server sshd[1234]: Failed password for root from 192.168.1.100', 'error');
+                    print('Jan 15 10:23:47 server sshd[1235]: Failed password for admin from 192.168.1.100', 'error');
+                    print('Jan 15 10:23:49 server sshd[1236]: Failed password for root from 192.168.1.100', 'error');
+                    print('💡 Múltiplas tentativas de login falhadas do IP 192.168.1.100', 'warning');
+                } else {
+                    print('Permission denied or file not found', 'error');
+                }
+            }
+            else {
+                print(`bash: ${cmd}: command not found`, 'error');
+                print('💡 Digite "help" para ver comandos disponíveis ou "hint" para uma dica.', 'warning');
+            }
+        }
+
+        function missaoConcluida() {
+            print('');
+            print('═'.repeat(70), 'success');
+            print('🎉 PARABÉNS! MISSÃO CONCLUÍDA COM SUCESSO! 🎉', 'success');
+            print('═'.repeat(70), 'success');
+            print('');
+            print(`✅ Você resolveu o problema corretamente!`, 'success');
+            print(`🏆 XP Ganho: +${cenarioAtual.xp}`, 'success');
+            print(`📊 Tentativas usadas: ${tentativas}`, 'info');
+            print('');
+            
+            xpTotal += cenarioAtual.xp;
+            missoesCompletas++;
+            
+            document.getElementById('xp-ganho').textContent = xpTotal;
+            document.getElementById('missoes-completas').textContent = missoesCompletas;
+            
+            // Efeito sonoro de sucesso (simulado com beep)
+            try {
+                const audio = new AudioContext();
+                const oscillator = audio.createOscillator();
+                const gain = audio.createGain();
+                oscillator.connect(gain);
+                gain.connect(audio.destination);
+                oscillator.frequency.value = 800;
+                gain.gain.value = 0.1;
+                oscillator.start();
+                oscillator.stop(audio.currentTime + 0.2);
+            } catch(e) {}
+            
+            print('Digite qualquer comando ou clique em "Nova Missão" para continuar...', 'info');
+        }
+
+        function mostrarAjuda() {
+            print('');
+            print('═══════════════════ COMANDOS DISPONÍVEIS ═══════════════════', 'info');
+            print('  help          - Mostra esta ajuda');
+            print('  hint          - Mostra uma dica para a missão atual');
+            print('  clear / cls   - Limpa a tela do terminal');
+            print('  ls            - Lista arquivos e diretórios');
+            print('  pwd           - Mostra diretório atual');
+            print('  ps / top      - Lista processos em execução');
+            print('  netstat       - Mostra conexões de rede');
+            print('  service       - Gerencia serviços do sistema');
+            print('  grep          - Busca em arquivos');
+            print('  cat / tail    - Exibe conteúdo de arquivos');
+            print('  df            - Mostra uso de disco');
+            print('  chmod         - Altera permissões de arquivos');
+            print('  ufw           - Gerencia firewall');
+            print('═══════════════════════════════════════════════════════════', 'info');
+            print('');
+        }
+
+        function mostrarDica() {
+            if (cenarioAtual && cenarioAtual.dicas.length > 0) {
+                const dicaIndex = Math.min(tentativas, cenarioAtual.dicas.length - 1);
+                print('');
+                print(`💡 DICA: ${cenarioAtual.dicas[dicaIndex]}`, 'warning');
+                print('');
+            }
+        }
+
+        function limparTerminal() {
+            document.getElementById('terminal-output').innerHTML = `
+                <div class="input-line">
+                    <span class="prompt">root@kali:~#</span>
+                    <input type="text" id="command-input" autofocus>
+                    <span class="cursor"></span>
+                </div>
+            `;
+            
+            // Reativar event listener
+            document.getElementById('command-input').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    const comando = this.value.trim();
+                    if (comando) {
+                        executarComando(comando);
+                        this.value = '';
+                    }
+                }
+            });
+            
+            document.getElementById('command-input').focus();
+        }
+
+        function print(texto, tipo = 'output') {
+            const output = document.getElementById('terminal-output');
+            const inputLine = output.querySelector('.input-line');
+            
+            const linha = document.createElement('div');
+            linha.className = `terminal-line output-${tipo}`;
+            linha.textContent = texto;
+            
+            output.insertBefore(linha, inputLine);
+            
+            // Auto-scroll
+            output.scrollTop = output.scrollHeight;
+        }
+    </script>
+</body>
+</html>

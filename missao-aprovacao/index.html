@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#1a1a2e">
+    <title>Missão Aprovação</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="apple-touch-icon" href="icons/icon-192x192.png">
+</head>
+
+<body>
+    <div id="app">
+        <!-- Tela Inicial -->
+        <div id="tela-inicial" class="tela ativa">
+            <header class="header-principal">
+                <div class="ferramentas-topo" style="position: absolute; top: 20px; right: 20px;">
+                    <button id="btn-toggle-tema" class="btn-tema" title="Tema Claro/Escuro">🌙</button>
+                    <button id="btn-hacker" class="btn-tema" title="Modo Hacker" style="margin-left: 10px;">👾</button>
+                </div>
+                <h1>Missão Aprovação</h1>
+                <p class="subtitulo">Treino de Elite - Operações Cibernéticas</p>
+            </header>
+
+            <div class="status-usuario">
+                <div class="status-item">
+                    <span class="status-label">Nível</span>
+                    <span id="nivel-atual" class="status-valor">1</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-label">XP Total</span>
+                    <span id="xp-total" class="status-valor">0</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-label">Streak</span>
+                    <div class="status-valor"><span id="streak-dias">0</span> dias</div>
+                </div>
+            </div>
+
+            <div class="progresso-nivel">
+                <div class="barra-progresso">
+                    <div id="barra-xp" class="barra-xp-preenchida" style="width: 0%"></div>
+                </div>
+                <p class="texto-progresso">Faltam <span id="xp-proximo">200</span> XP para o próximo nível</p>
+            </div>
+
+            <nav class="menu-principal">
+                <button class="btn-menu" data-tela="selecao-categoria">📚 Estudo por Módulo</button>
+                <button class="btn-menu" data-tela="inicio-simulado">📝 Simulado Completo</button>
+                <button class="btn-menu" data-tela="revisao">🔄 Revisão dos Erros</button>
+                <button class="btn-menu" data-tela="estatisticas">📊 Meu Progresso</button>
+                <!-- Novos módulos avançados -->
+                <button class="btn-menu" id="btn-terminal-avancado">💻 Terminal Avançado</button>
+                <button class="btn-menu" id="btn-owasp-zap">🛡️ OWASP ZAP</button>
+            </nav>
+        </div>
+
+        <!-- Seleção de Categoria (Estudo) -->
+        <div id="selecao-categoria" class="tela">
+            <header class="header-secao">
+                <button class="btn-voltar">← Voltar</button>
+                <h2>Estudo por Módulo</h2>
+            </header>
+
+            <div id="seletor-nivel" class="seletor-nivel">
+                <button class="btn-nivel ativo" data-nivel="base">Estudo Base 📚</button>
+                <button class="btn-nivel" data-nivel="elite">Tropa de Elite 💀</button>
+            </div>
+
+            <div class="categorias-grid">
+                <!-- Botão Especial de Laboratório -->
+                <button class="btn-lab" id="btn-lab" onclick="iniciarLaboratorio()">
+                    <span class="icone">🧪</span>
+                    <span class="texto">Laboratório Prático</span>
+                </button>
+
+                <button class="btn-categoria" data-categoria="redes">📡 Redes de Computadores</button>
+                <button class="btn-categoria" data-categoria="protocolos">🌐 Protocolos de Comunicação</button>
+                <button class="btn-categoria" data-categoria="criptografia">🔒 Noções de Criptografia</button>
+                <button class="btn-categoria" data-categoria="sistemas">💻 Sistemas Operacionais</button>
+                <button class="btn-categoria" data-categoria="ingles">🇺🇸 Inglês Técnico</button>
+                <!-- Nova categoria para estudo de Python com foco em segurança -->
+                <button class="btn-categoria" data-categoria="python">🐍 Python (Pareto)</button>
+            </div>
+        </div>
+
+        <!-- Área de Questão (Estudo) -->
+        <div id="area-questao" class="tela escondido">
+            <header class="header-secao">
+                <button class="btn-voltar">← Voltar</button>
+                <h2 id="categoria-atual">Categoria</h2>
+            </header>
+            <div class="info-questao">
+                <span id="numero-questao">Questão 1</span>
+            </div>
+
+            <div class="questao-card">
+                <p id="enunciado-questao" class="enunciado"></p>
+                <div id="alternativas-container" class="alternativas-container"></div>
+            </div>
+
+            <div id="feedback-resposta" class="feedback-resposta escondido">
+                <div class="feedback-header">
+                    <span id="feedback-icone"></span>
+                    <strong id="feedback-texto"></strong>
+                </div>
+                <p id="explicacao-questao" class="explicacao"></p>
+                <button id="btn-proxima" class="btn-acao">Próxima Questão →</button>
+            </div>
+        </div>
+
+        <!-- Simulado: Inicio -->
+        <div id="inicio-simulado" class="tela">
+            <header class="header-secao">
+                <button class="btn-voltar">← Voltar</button>
+                <h2>Simulado Completo</h2>
+            </header>
+            <div class="card-info">
+                <h3>Como funciona?</h3>
+                <ul class="lista-info">
+                    <li>50 questões aleatórias</li>
+                    <li>Mistura de todas as matérias</li>
+                    <li>Sem feedback imediato (estilo prova)</li>
+                    <li>Resultado e correção no final</li>
+                </ul>
+                <button id="btn-iniciar-simulado" class="btn-acao">Começar Simulado</button>
+            </div>
+        </div>
+
+        <!-- Simulado: Área de Questões -->
+        <div id="area-simulado" class="tela escondido">
+            <header class="header-secao">
+                <!-- Simulado geralmente não tem botão voltar simples para não perder progresso, mas vamos manter coerência visual se necessário -->
+                <h2 id="categoria-atual-sim">Categoria</h2>
+            </header>
+            <div class="info-questao">
+                <span id="numero-questao-sim">Questão 1 de 50</span>
+            </div>
+            <div class="questao-card">
+                <p id="enunciado-questao-sim" class="enunciado"></p>
+                <div id="alternativas-container-sim" class="alternativas-container"></div>
+            </div>
+            <button id="btn-responder-sim" class="btn-acao escondido">Confirmar Resposta</button>
+        </div>
+
+        <!-- Simulado: Resultado -->
+        <div id="resultado-simulado" class="tela escondido">
+            <header class="header-secao">
+                <button class="btn-voltar">← Voltar ao Início</button>
+                <h2>Resultado</h2>
+            </header>
+            <div class="resultado-simulado">
+                <h3>Sua Nota</h3>
+                <div class="nota-final">
+                    <span class="nota-label">Aproveitamento</span>
+                    <span id="nota-simulado" class="nota-valor">0%</span>
+                </div>
+
+                <div id="acertos-categoria" class="acertos-categoria"></div>
+                <div id="erros-detalhados" class="erros-detalhados"></div>
+
+                <button id="btn-novo-simulado" class="btn-acao">Novo Simulado</button>
+            </div>
+        </div>
+
+        <!-- Revisão -->
+        <div id="revisao" class="tela">
+            <header class="header-secao">
+                <button class="btn-voltar">← Voltar</button>
+                <h2>Revisão Inteligente</h2>
+            </header>
+            <div id="lista-erros" class="lista-erros">
+                <!-- Lista injetada via JS -->
+            </div>
+        </div>
+
+        <!-- Área de questão de revisão (Top Level) -->
+        <div id="area-revisao" class="tela">
+            <div class="header-secao">
+                <button class="btn-voltar" onclick="mostrarTela('revisao')">← Voltar para Lista</button>
+            </div>
+            <div class="questao-card">
+                <p class="subtitulo" id="categoria-atual-rev"></p>
+                <h3 id="numero-questao-rev"></h3>
+                <p id="enunciado-questao-rev" class="enunciado"></p>
+                <div id="alternativas-container-rev" class="alternativas-container"></div>
+            </div>
+
+            <div id="feedback-resposta-rev" class="feedback-resposta escondido">
+                <div class="feedback-header">
+                    <span id="feedback-icone-rev"></span>
+                    <strong id="feedback-texto-rev"></strong>
+                </div>
+                <p id="explicacao-questao-rev" class="explicacao"></p>
+                <button id="btn-proxima-rev" class="btn-acao">Próxima Questão na Lista</button>
+            </div>
+        </div>
+
+        <!-- Estatísticas -->
+        <div id="estatisticas" class="tela">
+            <header class="header-secao">
+                <button class="btn-voltar">← Voltar</button>
+                <h2>Estatísticas</h2>
+            </header>
+            <div class="estatisticas-container">
+                <div class="stats-geral">
+                    <h3>Visão Geral</h3>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span id="stat-xp" class="stat-valor">0</span>
+                            <span class="stat-label">XP Total</span>
+                        </div>
+                        <div class="stat-item">
+                            <span id="stat-nivel" class="stat-valor">1</span>
+                            <span class="stat-label">Nível</span>
+                        </div>
+                        <div class="stat-item">
+                            <span id="stat-streak" class="stat-valor">0</span>
+                            <span class="stat-label">Dias Streak</span>
+                        </div>
+                        <div class="stat-item">
+                            <span id="stat-questoes" class="stat-valor">0</span>
+                            <span class="stat-label">Questões</span>
+                        </div>
+                        <div class="stat-item">
+                            <span id="stat-simulados" class="stat-valor">0</span>
+                            <span class="stat-label">Simulados</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="seletor-nivel" class="seletor-nivel">
+                    <button class="btn-nivel ativo" data-nivel="base">Estudo Base 📚</button>
+                    <button class="btn-nivel" data-nivel="elite">Tropa de Elite 💀</button>
+                </div>
+
+                <div class="grade-categorias">
+                    <!-- Botão Especial de Laboratório -->
+                    <button class="btn-lab" id="btn-lab-stats" onclick="iniciarLaboratorio()">
+                        <span class="icone">🧪</span>
+                        <span class="texto">Laboratório Prático</span>
+                    </button>
+
+                    <div class="stats-categoria">
+                        <h3>Desempenho por Matéria</h3>
+                        <div id="desempenho-categorias" class="desempenho-categorias"></div>
+                    </div>
+
+                    <div class="badges-container">
+                        <h3>Conquistas</h3>
+                        <div id="badges-lista" class="badges-grid"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Área Prática (Terminal) -->
+            <div id="area-pratica" class="tela escondido">
+                <header class="header-secao" style="background: #000; border-bottom: 1px solid #33ff33;">
+                    <button class="btn-voltar" style="color: #33ff33; border-color: #33ff33;">← Encerrar Sessão</button>
+                    <h2 style="color: #33ff33; font-family: 'Courier New', monospace;">TERMINAL v2.0</h2>
+                </header>
+
+                <div class="terminal-container">
+                    <div id="cenario-atual-desc" class="terminal-info">
+                        <!-- Descrição injetada via JS -->
+                    </div>
+
+                    <div id="terminal-body" class="terminal-body">
+                        <div class="linha-output">Welcome to COPYCIBER OS v2.0</div>
+                        <div class="linha-output">Initializing secure environment...</div>
+                        <div class="linha-output">Access Granted.</div>
+
+                        <div class="linha-input">
+                            <span class="prompt">root@kali:~#</span>
+                            <input type="text" id="input-comando" autocomplete="off" spellcheck="false" autofocus>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CORE LOGIC -->
+            <script src="data.js?v=2.2"></script>
+            <script src="app.js?v=2.2"></script>
+            <script>
+                // Force cleanup of old service workers
+                if ('serviceWorker' in navigator) {
+                    navigator.serviceWorker.getRegistrations().then(function (registrations) {
+                        for (let registration of registrations) {
+                            registration.unregister();
+                        }
+                    });
+                }
+            </script>
+</body>
+
+</html>

@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador OWASP ZAP - Preparação COPCIBER</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e1e1e 0%, #2d2d2d 100%);
+            color: #e0e0e0;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 20px rgba(211, 47, 47, 0.3);
+        }
+
+        .header h1 {
+            color: white;
+            font-size: 28px;
+            margin-bottom: 5px;
+        }
+
+        .header p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 14px;
+        }
+
+        .toolbar {
+            display: flex;
+            gap: 10px;
+            padding: 15px;
+            background: #3d3d3d;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            transition: all 0.3s;
+            margin: 5px;
+        }
+
+        .btn-primary {
+            background: #d32f2f;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #b71c1c;
+            box-shadow: 0 4px 12px rgba(211, 47, 47, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: #3d3d3d;
+            color: white;
+            border: 2px solid #666;
+        }
+
+        .btn-secondary:hover {
+            background: #4d4d4d;
+            border-color: #d32f2f;
+        }
+
+        .btn-success {
+            background: #4caf50;
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #388e3c;
+        }
+
+        .secao {
+            display: none;
+        }
+
+        .secao.ativa {
+            display: block;
+        }
+
+        .main-panel {
+            background: #2d2d2d;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .cenario-card {
+            background: #3d3d3d;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #d32f2f;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .cenario-card:hover {
+            background: #4d4d4d;
+            transform: translateX(5px);
+        }
+
+        .cenario-card h3 {
+            color: #ff5252;
+            margin-bottom: 10px;
+        }
+
+        .cenario-card p {
+            color: #b0b0b0;
+            line-height: 1.6;
+            margin: 8px 0;
+        }
+
+        .cenario-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: #d32f2f;
+            color: white;
+            border-radius: 12px;
+            font-size: 11px;
+            margin: 5px 5px 0 0;
+        }
+
+        .command-list {
+            background: #1e1e1e;
+            padding: 15px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            margin: 15px 0;
+        }
+
+        .command-item {
+            padding: 12px;
+            margin: 8px 0;
+            border-left: 3px solid #d32f2f;
+            padding-left: 15px;
+        }
+
+        .command-item code {
+            color: #4caf50;
+            background: #000;
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .stat-card {
+            background: #3d3d3d;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 32px;
+            font-weight: bold;
+            color: #d32f2f;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: #b0b0b0;
+            font-size: 13px;
+        }
+
+        .quiz-question {
+            background: #3d3d3d;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .quiz-question h3 {
+            color: #ff5252;
+            margin-bottom: 15px;
+        }
+
+        .quiz-options {
+            margin-top: 15px;
+        }
+
+        .quiz-option {
+            background: #2d2d2d;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 4px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .quiz-option:hover {
+            border-color: #d32f2f;
+            background: #3d3d3d;
+        }
+
+        .quiz-option.correct {
+            border-color: #4caf50;
+            background: rgba(76, 175, 80, 0.2);
+        }
+
+        .quiz-option.incorrect {
+            border-color: #ff5252;
+            background: rgba(255, 82, 82, 0.2);
+        }
+
+        .explanation {
+            background: #1e1e1e;
+            padding: 15px;
+            border-left: 4px solid #2196f3;
+            margin-top: 15px;
+            border-radius: 4px;
+            display: none;
+        }
+
+        .zap-interface {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 20px;
+        }
+
+        .sidebar {
+            background: #2d2d2d;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .sidebar h3 {
+            color: #d32f2f;
+            font-size: 16px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #d32f2f;
+        }
+
+        .tree-item {
+            padding: 8px 12px;
+            margin: 5px 0;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.3s;
+            font-size: 14px;
+        }
+
+        .tree-item:hover {
+            background: #3d3d3d;
+        }
+
+        .tree-item.active {
+            background: #d32f2f;
+            color: white;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 2px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #3d3d3d;
+        }
+
+        .tab {
+            padding: 12px 24px;
+            background: #3d3d3d;
+            cursor: pointer;
+            border-radius: 4px 4px 0 0;
+            transition: all 0.3s;
+            font-size: 14px;
+        }
+
+        .tab:hover {
+            background: #4d4d4d;
+        }
+
+        .tab.active {
+            background: #d32f2f;
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .http-viewer {
+            background: #1e1e1e;
+            border: 1px solid #3d3d3d;
+            border-radius: 4px;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            max-height: 400px;
+            overflow-y: auto;
+            color: #00ff00;
+        }
+
+        .http-method { color: #4caf50; font-weight: bold; }
+        .http-header { color: #64b5f6; }
+        .http-value { color: #ffeb3b; }
+        .vulnerability { color: #ff5252; font-weight: bold; }
+
+        .alerts-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        .alerts-table th {
+            background: #3d3d3d;
+            padding: 12px;
+            text-align: left;
+            font-size: 13px;
+            border-bottom: 2px solid #d32f2f;
+        }
+
+        .alerts-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #3d3d3d;
+            font-size: 13px;
+        }
+
+        .alerts-table tr:hover {
+            background: #3d3d3d;
+        }
+
+        .severity {
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .severity-high { background: #ff5252; color: white; }
+        .severity-medium { background: #ff9800; color: white; }
+        .severity-low { background: #ffc107; color: #333; }
+        .severity-info { background: #2196f3; color: white; }
+
+        .progress {
+            background: #1e1e1e;
+            border-radius: 4px;
+            height: 24px;
+            margin: 15px 0;
+            overflow: hidden;
+            border: 1px solid #3d3d3d;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #d32f2f, #ff5252);
+            transition: width 0.5s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+            width: 0%;
+        }
+
+        @media (max-width: 768px) {
+            .zap-interface {
+                grid-template-columns: 1fr;
+            }
+            .stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🛡️ OWASP ZAP - Simulador Educacional</h1>
+            <p>Aprenda a usar a ferramenta de segurança web mais popular do mundo</p>
+        </div>
+
+        <div class="toolbar">
+            <button class="btn btn-primary" onclick="mostrarSecao('introducao')">📚 Introdução</button>
+            <button class="btn btn-primary" onclick="mostrarSecao('interface')">🖥️ Interface</button>
+            <button class="btn btn-primary" onclick="mostrarSecao('cenarios')">🎯 Cenários</button>
+            <button class="btn btn-primary" onclick="mostrarSecao('quiz')">📝 Quiz</button>
+            <button class="btn btn-secondary" onclick="mostrarSecao('comandos')">⌨️ Comandos</button>
+        </div>
+
+        <!-- SEÇÃO: INTRODUÇÃO -->
+        <div id="secao-introducao" class="secao ativa">
+            <div class="main-panel">
+                <h2 style="color: #d32f2f; margin-bottom: 20px;">📚 O que é OWASP ZAP?</h2>
+                
+                <p style="line-height: 1.8; color: #b0b0b0; margin-bottom: 20px;">
+                    <strong style="color: white;">OWASP ZAP</strong> (Zed Attack Proxy) é uma ferramenta gratuita e open-source 
+                    para teste de segurança em aplicações web, desenvolvida pela OWASP.
+                </p>
+
+                <div class="cenario-card">
+                    <h3>🕷️ Spider (Crawler)</h3>
+                    <p>Varre automaticamente a aplicação descobrindo páginas, formulários e parâmetros.</p>
+                    <span class="cenario-badge">Reconhecimento</span>
+                </div>
+
+                <div class="cenario-card">
+                    <h3>🔍 Active Scanner</h3>
+                    <p>Testa vulnerabilidades injetando payloads maliciosos (SQL Injection, XSS, etc).</p>
+                    <span class="cenario-badge">Teste Ativo</span>
+                </div>
+
+                <div class="cenario-card">
+                    <h3>👁️ Passive Scanner</h3>
+                    <p>Analisa tráfego sem modificar requisições, detectando problemas de configuração.</p>
+                    <span class="cenario-badge">Análise Passiva</span>
+                </div>
+
+                <div class="cenario-card">
+                    <h3>🔄 Proxy Interceptador</h3>
+                    <p>Intercepta e modifica tráfego HTTP/HTTPS em tempo real.</p>
+                    <span class="cenario-badge">Interceptação</span>
+                </div>
+
+                <div class="stats">
+                    <div class="stat-card">
+                        <div class="stat-value">50+</div>
+                        <div class="stat-label">Tipos de Vulnerabilidades</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">100%</div>
+                        <div class="stat-label">Gratuito & Open Source</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">#1</div>
+                        <div class="stat-label">Ferramenta OWASP</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">8080</div>
+                        <div class="stat-label">Porta Padrão do Proxy</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEÇÃO: INTERFACE -->
+        <div id="secao-interface" class="secao">
+            <div class="zap-interface">
+                <div class="sidebar">
+                    <h3>🌲 Sites Tree</h3>
+                    <div class="tree-item active">🌐 http://vulnerable-app.com</div>
+                    <div class="tree-item" style="padding-left: 30px;">📄 /login</div>
+                    <div class="tree-item" style="padding-left: 30px;">📄 /admin</div>
+                    <div class="tree-item" style="padding-left: 30px;">🔌 /api/users</div>
+                </div>
+
+                <div class="main-panel">
+                    <div class="toolbar" style="margin-bottom: 15px;">
+                        <button class="btn btn-success" onclick="iniciarScan()">▶️ Active Scan</button>
+                        <button class="btn btn-primary" onclick="iniciarSpider()">🕷️ Spider</button>
+                        <button class="btn btn-secondary" onclick="limparAlerts()">🗑️ Limpar</button>
+                    </div>
+
+                    <div id="scan-progress" style="display: none;">
+                        <div class="progress">
+                            <div class="progress-bar" id="progress-bar">0%</div>
+                        </div>
+                    </div>
+
+                    <div class="tabs">
+                        <div class="tab active" onclick="trocarTab('request')">📤 Request</div>
+                        <div class="tab" onclick="trocarTab('response')">📥 Response</div>
+                        <div class="tab" onclick="trocarTab('alerts')">⚠️ Alerts (<span id="alert-count">0</span>)</div>
+                    </div>
+
+                    <div id="tab-request" class="tab-content active">
+                        <h3 style="color: #64b5f6; margin-bottom: 10px;">HTTP Request</h3>
+                        <div class="http-viewer">
+<span class="http-method">GET</span> /login HTTP/1.1
+<span class="http-header">Host:</span> <span class="http-value">vulnerable-app.com</span>
+<span class="http-header">User-Agent:</span> <span class="http-value">OWASP ZAP 2.14.0</span>
+<span class="http-header">Cookie:</span> <span class="http-value">session=abc123</span>
+                        </div>
+                        <button class="btn btn-primary" onclick="injetarPayload('sql')">💉 SQL Injection</button>
+                        <button class="btn btn-primary" onclick="injetarPayload('xss')">💉 XSS</button>
+                    </div>
+
+                    <div id="tab-response" class="tab-content">
+                        <h3 style="color: #4caf50; margin-bottom: 10px;">HTTP Response</h3>
+                        <div class="http-viewer">
+<span class="http-method">HTTP/1.1 200 OK</span>
+<span class="http-header">Content-Type:</span> <span class="http-value">text/html</span>
+<span class="http-header">X-Frame-Options:</span> <span class="vulnerability">MISSING</span> ⚠️
+                        </div>
+                    </div>
+
+                    <div id="tab-alerts" class="tab-content">
+                        <h3 style="color: #ff5252; margin-bottom: 10px;">Vulnerabilidades Detectadas</h3>
+                        <table class="alerts-table">
+                            <thead>
+                                <tr>
+                                    <th>Severidade</th>
+                                    <th>Tipo</th>
+                                    <th>URL</th>
+                                    <th>Descrição</th>
+                                </tr>
+                            </thead>
+                            <tbody id="alerts-tbody">
+                                <tr><td colspan="4" style="text-align: center; color: #777;">Execute um scan</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEÇÃO: CENÁRIOS -->
+        <div id="secao-cenarios" class="secao">
+            <div class="main-panel">
+                <h2 style="color: #d32f2f; margin-bottom: 20px;">🎯 Cenários Práticos</h2>
+                
+                <div class="cenario-card" onclick="executarCenario(1)">
+                    <h3>Cenário 1: SQL Injection</h3>
+                    <p><strong>Objetivo:</strong> Detectar SQL Injection em formulário de login</p>
+                    <p><strong>Passos:</strong> Configure proxy → Navegue até login → Execute Active Scan</p>
+                    <span class="cenario-badge">Alta Severidade</span>
+                </div>
+
+                <div class="cenario-card" onclick="executarCenario(2)">
+                    <h3>Cenário 2: XSS Reflected</h3>
+                    <p><strong>Objetivo:</strong> Identificar campo vulnerável a XSS</p>
+                    <p><strong>Passos:</strong> Spider → Fuzzer com payloads XSS → Verificar reflexão</p>
+                    <span class="cenario-badge">Média Severidade</span>
+                </div>
+
+                <div class="cenario-card" onclick="executarCenario(3)">
+                    <h3>Cenário 3: Broken Authentication</h3>
+                    <p><strong>Objetivo:</strong> Detectar falhas de autenticação</p>
+                    <p><strong>Passos:</strong> Analisar cookies → Testar brute force → Verificar timeout</p>
+                    <span class="cenario-badge">Alta Severidade</span>
+                </div>
+
+                <div id="cenario-resultado" style="display: none; margin-top: 20px;">
+                    <div class="quiz-question">
+                        <h3 style="color: #4caf50;">✅ Cenário Executado!</h3>
+                        <div class="explanation" style="display: block;">
+                            <p id="texto-resultado"></p>
+                        </div>
+                        <button class="btn btn-primary" onclick="document.getElementById('cenario-resultado').style.display='none'">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEÇÃO: QUIZ -->
+        <div id="secao-quiz" class="secao">
+            <div class="main-panel">
+                <h2 style="color: #d32f2f; margin-bottom: 20px;">📝 Quiz - Teste seus Conhecimentos</h2>
+                <div id="quiz-container"></div>
+                <div class="stats">
+                    <div class="stat-card">
+                        <div class="stat-value" id="quiz-acertos">0</div>
+                        <div class="stat-label">Acertos</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="quiz-erros">0</div>
+                        <div class="stat-label">Erros</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="quiz-percentual">0%</div>
+                        <div class="stat-label">Taxa de Acerto</div>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <button class="btn btn-success" onclick="carregarQuiz()">🔄 Novo Quiz</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEÇÃO: COMANDOS -->
+        <div id="secao-comandos" class="secao">
+            <div class="main-panel">
+                <h2 style="color: #d32f2f; margin-bottom: 20px;">⌨️ Comandos Importantes</h2>
+                
+                <h3 style="color: #ff5252; margin: 20px 0 10px;">🖱️ Interface Gráfica</h3>
+                <div class="command-list">
+                    <div class="command-item">
+                        <strong>Iniciar:</strong> <code>zaproxy</code>
+                    </div>
+                    <div class="command-item">
+                        <strong>Proxy:</strong> Tools → Options → Local Proxies (127.0.0.1:8080)
+                    </div>
+                    <div class="command-item">
+                        <strong>Active Scan:</strong> Right-click URL → Attack → Active Scan
+                    </div>
+                </div>
+
+                <h3 style="color: #ff5252; margin: 20px 0 10px;">💻 Linha de Comando</h3>
+                <div class="command-list">
+                    <div class="command-item">
+                        <strong>Baseline Scan:</strong><br>
+                        <code>zap-baseline.py -t https://target.com</code>
+                    </div>
+                    <div class="command-item">
+                        <strong>Full Scan:</strong><br>
+                        <code>zap-full-scan.py -t https://target.com -r report.html</code>
+                    </div>
+                </div>
+
+                <h3 style="color: #ff5252; margin: 20px 0 10px;">🎯 Workflow de Prova</h3>
+                <div class="command-list">
+                    <div class="command-item">1. Iniciar ZAP e configurar browser (proxy 127.0.0.1:8080)</div>
+                    <div class="command-item">2. Importar certificado SSL do ZAP</div>
+                    <div class="command-item">3. Navegar pela aplicação (Passive Scan automático)</div>
+                    <div class="command-item">4. Executar Spider para mapear site</div>
+                    <div class="command-item">5. Executar Active Scan</div>
+                    <div class="command-item">6. Analisar Alerts (priorize HIGH/MEDIUM)</div>
+                    <div class="command-item">7. Gerar Relatório</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // VARIÁVEIS GLOBAIS
+        let alertCount = 0;
+        let quizAcertos = 0;
+        let quizErros = 0;
+
+        const questoes = [
+            {
+                pergunta: "Qual a porta padrão do proxy do OWASP ZAP?",
+                opcoes: ["8080", "8888", "3128", "9090"],
+                correta: 0,
+                explicacao: "O ZAP usa por padrão a porta 8080 para o proxy local (127.0.0.1:8080)."
+            },
+            {
+                pergunta: "Qual scan NÃO requer interação ativa?",
+                opcoes: ["Active Scan", "Fuzzer", "Passive Scan", "Spider"],
+                correta: 2,
+                explicacao: "Passive Scan analisa apenas tráfego passando pelo proxy, sem enviar requisições extras."
+            },
+            {
+                pergunta: "O que o Spider faz?",
+                opcoes: ["Injeta payloads", "Descobre páginas da aplicação", "Gera relatórios", "Bloqueia tráfego"],
+                correta: 1,
+                explicacao: "Spider (crawler) navega automaticamente descobrindo links e recursos."
+            },
+            {
+                pergunta: "Para interceptar HTTPS, o ZAP precisa:",
+                opcoes: ["Só configurar proxy", "Instalar certificado no browser", "Desabilitar HTTPS", "Nada"],
+                correta: 1,
+                explicacao: "Deve importar o certificado SSL do ZAP no navegador."
+            },
+            {
+                pergunta: "Qual severidade é mais crítica?",
+                opcoes: ["Low", "Medium", "High", "Info"],
+                correta: 2,
+                explicacao: "High indica vulnerabilidades críticas (SQL Injection, RCE, etc)."
+            }
+        ];
+
+        // NAVEGAÇÃO
+        function mostrarSecao(nome) {
+            document.querySelectorAll('.secao').forEach(s => s.classList.remove('ativa'));
+            document.getElementById('secao-' + nome).classList.add('ativa');
+            if (nome === 'quiz') carregarQuiz();
+        }
+
+        function trocarTab(nome) {
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(tc => tc.classList.remove('active'));
+            event.target.classList.add('active');
+            document.getElementById('tab-' + nome).classList.add('active');
+        }
+
+        // SCAN
+        function iniciarScan() {
+            document.getElementById('scan-progress').style.display = 'block';
+            const bar = document.getElementById('progress-bar');
+            let p = 0;
+            
+            const interval = setInterval(() => {
+                p += 25;
+                bar.style.width = p + '%';
+                bar.textContent = p + '%';
+                
+                if (p === 25) adicionarAlert('High', 'SQL Injection', '/login', 'Parâmetro vulnerável');
+                if (p === 50) adicionarAlert('Medium', 'XSS', '/search', 'Campo sem sanitização');
+                if (p === 75) adicionarAlert('Low', 'Cookie sem HttpOnly', '/login', 'Cookie inseguro');
+                
+                if (p >= 100) {
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        document.getElementById('scan-progress').style.display = 'none';
+                        alert('✅ Scan completo! ' + alertCount + ' vulnerabilidades encontradas');
+                    }, 500);
+                }
+            }, 800);
+        }
+
+        function iniciarSpider() {
+            alert('🕷️ Spider executado!\n✅ 15 páginas descobertas\n✅ 8 formulários encontrados');
+        }
+
+        function adicionarAlert(sev, tipo, url, desc) {
+            alertCount++;
+            document.getElementById('alert-count').textContent = alertCount;
+            const tbody = document.getElementById('alerts-tbody');
+            if (tbody.children[0]?.textContent.includes('Execute')) tbody.innerHTML = '';
+            
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td><span class="severity severity-${sev.toLowerCase()}">${sev}</span></td>
+                <td>${tipo}</td>
+                <td style="font-family: monospace;">${url}</t
