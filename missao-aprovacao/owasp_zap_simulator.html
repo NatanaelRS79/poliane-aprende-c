@@ -412,11 +412,11 @@
         </div>
 
         <div class="toolbar">
-            <button class="btn btn-primary" onclick="mostrarSecao('introducao')">📚 Introdução</button>
-            <button class="btn btn-primary" onclick="mostrarSecao('interface')">🖥️ Interface</button>
-            <button class="btn btn-primary" onclick="mostrarSecao('cenarios')">🎯 Cenários</button>
-            <button class="btn btn-primary" onclick="mostrarSecao('quiz')">📝 Quiz</button>
-            <button class="btn btn-secondary" onclick="mostrarSecao('comandos')">⌨️ Comandos</button>
+                       <button class="btn btn-primary nav-btn" data-secao="introducao">📚 Introdução</button>
+            <button class="btn btn-primary nav-btn" data-secao="interface">🖥️ Interface</button>
+            <button class="btn btn-primary nav-btn" data-secao="cenarios">🎯 Cenários</button>
+            <button class="btn btn-primary nav-btn" data-secao="quiz">📝 Quiz</button>
+            <button class="btn btn-secondary nav-btn" data-secao="comandos">⌨️ Comandos</button>
         </div>
 
         <!-- SEÇÃO: INTRODUÇÃO -->
@@ -705,9 +705,20 @@
             document.getElementById('tab-' + nome).classList.add('active');
         }
 
+                document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.nav-btn').forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    mostrarSecao(btn.getAttribute('data-secao'));
+                });
+            });
+        });
+
         // SCAN
         function iniciarScan() {
-            document.getElementById('scan-progress').style.display = 'block';
+        
+            
+                
+document.getElementById('scan-progress').style.display = 'block';
             const bar = document.getElementById('progress-bar');
             let p = 0;
             
