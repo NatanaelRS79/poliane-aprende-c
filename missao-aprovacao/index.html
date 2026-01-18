@@ -266,9 +266,12 @@
                     <div id="cenario-atual-desc" class="terminal-info">
                         <!-- Descrição injetada via JS -->
                     </div>
-
+     
                     <div id="terminal-body" class="terminal-body">
-                        <div class="linha-output">Welcome to COPYCIBER OS v2.0</div>
+     
+            
+    
+<div class="linha-output">Welcome to COPYCIBER OS v2.0</div>
                         <div class="linha-output">Initializing secure environment...</div>
                         <div class="linha-output">Access Granted.</div>
 
@@ -281,8 +284,33 @@
             </div>
 
             <!-- CORE LOGIC -->
-            <script src="data.js?v=2.2"></script>
-            <script src="app.js?v=2.2"></script>
+
+                <script>
+    (async function() {
+      try {
+        const [dataText, appText] = await Promise.all([
+          fetch('data.js?v=2.2').then(r => r.text()),
+          fetch('app.js?v=2.2').then(r => r.text()),
+        ]);
+        eval(dataText);
+        eval(appText);
+        document.dispatchEvent(new Event('DOMContentLoaded'));
+      } catch (e) {
+        console.error('Failed to load scripts', e);
+      }
+    })();
+    </script>
+    <script>
+      // Force cleanup of old service workers
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistrations().then(function (registrations) {
+          for (let registration of registrations) {
+            registration.unregister();
+          }
+        });
+      }
+    </script>
+
             <script>
                 // Force cleanup of old service workers
                 if ('serviceWorker' in navigator) {
